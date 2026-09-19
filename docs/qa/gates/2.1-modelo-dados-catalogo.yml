@@ -1,0 +1,9 @@
+schema: 1
+story: '2.1'
+gate: PASS
+status_reason: 'Models Show/Track/Lesson corretos e aplicados no TiDB real (colunas conferidas via SHOW COLUMNS: text para synopsis/contentBody, varchar(191) para ids, cascade delete verificado em dois níveis). Show expõe só metadados factuais, sem campo de terceiros. 8/8 testes de database + 37/37 de api passando, typecheck limpo.'
+reviewer: 'Dex'
+reviewed_revision: 'uncommitted working tree (pré-commit)'
+updated: '2026-07-30T00:00:00Z'
+top_issues: []
+waiver: { active: false }

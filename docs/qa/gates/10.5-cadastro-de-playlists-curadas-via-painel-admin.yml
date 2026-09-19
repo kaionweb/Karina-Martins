@@ -1,0 +1,15 @@
+schema: 1
+story: '10.5'
+gate: PASS
+status_reason: 'Todos os 14 ACs verificados no codigo e cobertos por teste; 186/186 (api) + 65/65 (web) verdes, typecheck e build isolados de api/web passam. ARCH-001 (unico achado do gate original) corrigido em 2026-08-11: extractPlaylistId agora cobre URL colada sem protocolo via fallback de regex, com teste unitario dedicado.'
+reviewer: 'Quinn'
+reviewed_revision: 'content-digest:4176e14356294de8b86024b92f0a33d787cc4741'
+updated: '2026-08-11T00:00:00Z'
+top_issues:
+  - id: 'ARCH-001'
+    severity: low
+    status: fixed
+    finding: 'extractPlaylistId() (admin-playlists.service.ts) usava new URL(input) num try/catch: cobria URL absoluta com protocolo (https://...?list=...) e id puro, ambos testados (AC4/AC5). Uma URL relativa colada sem protocolo mas contendo "list=" (ex.: "playlist?list=PLxxx", sem "https://") falhava o new URL(), caia no catch, e retornava a string inteira como playlistId — silenciosamente errado.'
+    suggested_action: 'Adicionar um fallback com regex para extrair list=([^&]+) antes de desistir e retornar o input cru.'
+    resolution: 'Corrigido: catch agora tenta /[?&]list=([^&]+)/ antes de retornar a string crua; comportamento de id puro preservado (regex nao casa, fallback pro trimmed original). Teste unitario dedicado adicionado em apps/api/test/unit/admin-playlists.service.test.ts (6 casos, incluindo o cenario do achado). Suite completa: 186/186 verdes.'
+waiver: { active: false }

@@ -1,0 +1,54 @@
+schema: 1
+story: '10.2'
+gate: PASS
+status_reason: 'Todos os 6 ACs atendidos e verificados em código + testes; regressão reexecutada de forma independente pelo gate (typecheck 7/7, build 4/4, web 52/52 em 18 arquivos, api 155/155 em 25 suites — inclui ranking.test.ts integração e gamification-ranking.service.test.ts unit contra TiDB real). Endpoint novo /gamification/ranking segue o padrão de segurança do módulo; ranking global expõe apenas posição/contagem (nunca identidade); desempate determinístico por sort estável do V8 sobre lista pré-ordenada por createdAt asc; sem rótulo de faixa (Artigo IV); nenhuma mudança de schema Prisma. Único gap é a verificação manual no navegador (TEST-001, low), não automatizável neste ciclo — mesma classe do gate da 10.1.'
+reviewer: 'Quinn (papel executado por @architect / Aria, conforme Executor Assignment da story: quality_gate: architect)'
+reviewed_revision: 'branch:main (working tree) — HEAD 26de19a, sem commit novo (gate não commita)'
+updated: '2026-08-09T00:00:00Z'
+top_issues:
+  - id: 'TEST-001'
+    severity: low
+    finding: 'Verificação manual no navegador (login familia.demo@kaionweb.com / perfil Theo, conferir "Nível N" no cabeçalho, barra de progresso e posição do ranking em /home coerentes com o XP real do banco) não foi executada — o @architect não tem ferramenta de browser/playwright disponível neste ciclo autônomo. Mesma classe do TEST-001 registrado no gate da Story 10.1 (que continua verdadeiro). Coberta indiretamente pelos testes de componente HomePage.test.tsx casos (d) "Nível 5" real sem rótulo + "3º" no ranking, e (e) position null → "—" sem quebrar.'
+    suggested_action: 'Rodar o smoke test manual com a conta demo antes da apresentação ao cliente (dando tempo para o cold start da API no Render). Conferir que o "Nível 12 · Intermediário" fixo do design system foi de fato substituído pelo nível derivado real e que o ranking mostra a posição do perfil Theo.'
+  - id: 'MNT-001'
+    severity: low
+    finding: 'Desempate do ranking usa apenas `orderBy: { createdAt: "asc" }` sem critério secundário (ex.: id). Em TiDB/MySQL o DateTime tem precisão de milissegundos; dois perfis CHILD criados no mesmo milissegundo teriam ordem não determinística entre si (a estabilidade do sort do V8 preserva a ordem da lista, mas a própria lista fica ambígua nesse empate exato de createdAt). Cenário extremo e improvável no volume de demo; a decisão de desempate por createdAt é explícita da story (Scope Note 7).'
+    suggested_action: 'Não bloqueante. Em hardening futuro, adicionar `{ id: "asc" }` como orderBy secundário no findMany de childProfiles para tornar o desempate totalmente determinístico mesmo com createdAt idêntico ao milissegundo.'
+waiver: { active: false }
+
+evidence:
+  checks_performed:
+    - check: 'Code review (padrões, legibilidade, manutenibilidade)'
+      verdict: PASS
+      note: 'getRanking reaproveita o padrão de agregação de getXpTotal (aggregate → groupBy para múltiplos perfis), findUniqueOrThrow para o perfil ativo (mesmo padrão de updateStreaks), Map profileId→total com default 0 para perfis sem XpEvent. deriveLevel é função pura centralizada em @ipp/shared (lib/level.ts) — sem duplicação front/back, com saneamento de entrada Math.max(0, Math.floor). Controller: handler getRanking idêntico em forma a getXpTotal/getBadges. IDS: CREATE de level.ts e rankingResponseSchema justificados (capacidade nova, sem artefato reutilizável); ADAPT pontual de home/page.tsx.'
+    - check: 'Testes (cobertura adequada, todos passando)'
+      verdict: PASS
+      note: 'Executados nesta revisão (não apenas relatados): web 52 testes/18 arquivos (Vitest) — inclui level.test.ts (7 casos: 0/199/200/2450, negativo, fracionário, LEVEL_XP_STEP) e HomePage casos (d) "Nível 5" real sem faixa + "3º", (e) position null → "—". api 155 testes/25 suites (Jest, runInBand contra TiDB real) — inclui gamification-ranking.service.test.ts (ordenação desc, desempate por createdAt asc rodado 2x provando determinismo, ADULT → position null) e ranking.test.ts integração (401 sem token, 403 NO_ACTIVE_PROFILE, posições relativas + totalParticipants real). Caso obrigatório de empate determinístico presente e verde.'
+    - check: 'Acceptance criteria (AC1-6)'
+      verdict: PASS
+      note: 'AC1: getRanking soma XpEvent.amount por profileId (groupBy), só CHILD, ordena desc com desempate createdAt asc, position 1-indexed, ADULT → null com totalParticipants = contagem CHILD. AC2: 401 sem token (JwtAuthGuard no controller) + 403 NO_ACTIVE_PROFILE (checagem manual req.user.profileId), mesmo padrão de xp/badges — coberto por integração. AC3: rankingResponseSchema (position int min1 nullable, totalParticipants int min0) + RankingResponse em gamification.schema.ts; lib/level.ts com LEVEL_XP_STEP=200, LevelInfo, deriveLevel; export em index.ts. AC4: home usa deriveLevel(xpTotal) → "Nível N" no cabeçalho sem faixa (L102) + ProgressBar do topo com progressPercent (L132). AC5: getRanking no mesmo Promise.all da gamificação; StatCard "Ranking" (L210) usa position real com fallback "—". AC6: pnpm build 4/4 completo verificado.'
+    - check: 'Sem regressões'
+      verdict: PASS
+      note: 'pnpm typecheck 7/7, pnpm build 4/4, pnpm test (web 52/52 + api 155/155) — todos reexecutados de forma independente nesta revisão. Nenhuma suíte pré-existente quebrou. Home segue "use client"; getRanking entrou no Promise.all existente da 10.1 sem alterar o fluxo de loading/erro das demais chamadas. Import jornadaMock removido de home/page.tsx (ambos usos substituídos por dados reais); export jornadaMock mantido intacto em _mock/content.ts (fora de escopo).'
+    - check: 'Performance'
+      verdict: PASS
+      note: 'getRanking: findUniqueOrThrow (perfil ativo) + findMany (ids CHILD, select id) + groupBy (soma por perfil) — sem N+1, agregação no banco. Sem paginação (decisão explícita: volume de demo). Sem estado em memória no servidor entre requests (adequado ao free tier, API pode dormir). Frontend: sem chamada extra para nível (deriveLevel local sobre XP já buscado); ranking entrou no Promise.all existente (nenhum round-trip serial novo). /home permanece rota estática no build.'
+    - check: 'Segurança (OWASP básico)'
+      verdict: PASS
+      note: 'Endpoint novo protegido por @UseGuards(JwtAuthGuard) no controller + checagem manual req.user.profileId → ForbiddenException apiErrorBody NO_ACTIVE_PROFILE (idêntico a getXpTotal/getBadges) — 401/403 confirmados por integração. Ranking é global entre todos os CHILD do banco (decisão explícita da story), mas a resposta expõe SOMENTE { position, totalParticipants } — nunca nickname, id ou qualquer identidade de outros perfis (o service faz select id apenas para computar posição/contagem). Nenhum dado de perfil-criança de terceiros vaza. ANTHROPIC_API_KEY não tocada no web; sem secrets no cliente.'
+    - check: 'Documentação'
+      verdict: PASS
+      note: 'Scope Note (8 itens, incl. 2 AUTO-DECISIONs: fórmula centralizada em @ipp/shared e desempate por createdAt asc), Dev Notes, Completion Notes e File List completos e coerentes com a implementação. Ausência de rótulo de faixa documentada e justificada (Artigo IV / Scope Note 5). Achado do dev sobre asserções relativas no banco compartilhado registrado.'
+  special_attention:
+    - point: 'Endpoint de ranking segue o padrão de segurança do módulo e não vaza dados de outras contas'
+      result: 'CONFIRMADO — controller.ts:29-36 replica exatamente o padrão de getXpTotal/getBadges (guard de classe + checagem manual profileId + apiErrorBody NO_ACTIVE_PROFILE). service.getRanking retorna apenas { position, totalParticipants }; o findMany de perfis CHILD usa select { id: true } e os ids nunca saem no payload. Ranking global entre CHILD é decisão explícita da story e expõe só posição/contagem agregada.'
+    - point: 'Determinismo do desempate (sort estável do V8 sobre lista pré-ordenada por createdAt asc)'
+      result: 'CONFIRMADO — childProfiles vem com orderBy createdAt asc; childIds preserva essa ordem; [...childIds].sort(desc por XP) é estável (V8/Node >= 11) → entre XPs iguais a ordem createdAt asc é mantida. A ordem do groupBy é irrelevante (só alimenta um Map de lookup). Teste unit roda o caso de empate 2x e prova posições idênticas. Observação low (MNT-001): empate exato de createdAt ao milissegundo não tem critério secundário — cenário extremo, não bloqueante.'
+    - point: 'deriveLevel não reintroduz rótulo de faixa (Artigo IV — No Invention)'
+      result: 'CONFIRMADO — lib/level.ts retorna apenas { level, progressPercent }, sem faixa. home/page.tsx:102 renderiza "Nível {levelInfo.level}" sem sufixo e NÃO importa LevelTag. Grep por Intermediário/Iniciante/Avançado/Básico/LevelTag/faixa nos arquivos da story acha só comentários explicativos e a asserção negativa queryByText(/Intermediário/) === null no teste (d). LevelTag do @ipp/ui existe mas é usado apenas por telas de vídeo pré-existentes, não pela Home.'
+    - point: 'Nenhuma mudança de schema Prisma nesta story'
+      result: 'CONFIRMADO — git diff HEAD packages/database/prisma/schema.prisma vazio. Reaproveita Profile.type/createdAt e XpEvent.amount/profileId já existentes.'
+    - point: 'Teste de integração do ranking roda contra o TiDB real (não mock)'
+      result: 'CONFIRMADO — ranking.test.ts importa prisma de @ipp/database, registra usuário real, cria 3 perfis CHILD + XpEvents reais e exerce o app HTTP via supertest; sem vi.mock/jest.mock do banco. Suíte api rodou em 102s (runInBand) contra o banco real nesta revisão.'
+    - point: 'Verificação manual no navegador (smoke test com conta demo)'
+      result: 'NÃO EXECUTADA — sem ferramenta de browser/playwright disponível ao @architect neste ciclo. Registrada como gap explícito (TEST-001, low), mesma classe do gate da 10.1. Coberta indiretamente pelos testes de componente (d)/(e).'

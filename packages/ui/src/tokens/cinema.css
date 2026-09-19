@@ -1,0 +1,30 @@
+/**
+ * Fonte de documentação dos tokens do tema "cinema" (Fase 1 · Design System).
+ * Assim como theme.css, o CSS efetivamente carregado é
+ * apps/web/src/app/globals.css — este arquivo é mantido em sincronia
+ * manualmente com esses valores (não há postcss-import configurado no
+ * monorepo). Ver ./cinema.ts para os mesmos valores em JS.
+ */
+
+:root {
+  --cinema-bg: 247 249 252;
+  --cinema-surface: 255 255 255;
+  --cinema-surface-alt: 238 243 249;
+  --cinema-border: 229 234 242;
+  --cinema-text: 26 36 51;
+  --cinema-muted: 92 107 125;
+  --cinema-primary: 45 101 174;
+  --cinema-primary-alt: 71 153 193;
+  --cinema-amber: 251 198 7;
+  --cinema-blue: 30 74 133;
+  --cinema-green: 62 207 142;
+
+  --cinema-radius-sm: 14px;
+  --cinema-radius-md: 18px;
+  --cinema-radius-lg: 20px;
+  --cinema-radius-full: 999px;
+
+  --cinema-shadow-glow: 0 6px 18px -6px rgb(45 101 174 / 0.35);
+  --cinema-shadow-orb: 0 12px 26px -8px rgb(45 101 174 / 0.45);
+  --cinema-shadow-elevated: 0 8px 20px rgb(0 0 0 / 0.08);
+}

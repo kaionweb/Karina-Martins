@@ -1,0 +1,61 @@
+schema: 1
+story: '9.3'
+gate: PASS
+status_reason: 'Todos os 6 ACs atendidos e verificados em código + testes (146 API/23 suites, sem regressão); REL-001 (medium, único achado não-baixo) foi corrigido e reverificado nesta atualização — restam apenas 2 achados low não-bloqueantes.'
+reviewer: 'Quinn (papel executado por @architect, conforme Executor Assignment da story: quality_gate: architect)'
+reviewed_revision: 'branch:main (working tree) — fix REL-001 aplicado após commit 874c679'
+updated: '2026-08-07T21:50:00Z'
+resolved_issues:
+  - id: 'REL-001'
+    severity: medium
+    finding: '`VideoWatchService.registerHeartbeat` não envolvia o upsert de `VideoWatch` (que fixa `completedAt`) e a criação do `XpEvent` em um único `prisma.$transaction`, diferente do padrão citado nas Dev Notes (`LessonsService.completeLesson`). Se a criação do `XpEvent` falhasse depois do upsert já ter persistido `completedAt`, nenhum heartbeat futuro tentaria de novo: `alreadyCompleted` travaria em `true` para sempre, perdendo XP e streak permanentemente.'
+    resolution: 'Upsert de VideoWatch + checagem do teto diário + criação condicional do XpEvent agora rodam dentro de um único `prisma.$transaction(async (tx) => {...})` (transação interativa — necessária porque a criação do XpEvent depende de uma leitura condicional do teto diário, diferente do `$transaction([...])` em array usado por LessonsService, que não tem essa condicional). Qualquer falha em qualquer etapa reverte a transação inteira: o vídeo nunca fica marcado como concluído sem o XP correspondente ter sido decidido (concedido ou explicitamente capado) na mesma unidade atômica. Reverificado: `pnpm typecheck` (api), `pnpm build` (4/4) e suíte completa (146 testes API/23 suites) verdes, sem mudança de comportamento observável — só de atomicidade.'
+top_issues:
+  - id: 'TEST-001'
+    severity: low
+    finding: 'Subtask 7.2 (verificação manual no navegador — assistir vídeo até 80%, confirmar XP/streak com conta de demo) ficou desmarcada, como já documentado pelo @dev. Coberta indiretamente pelos testes de unidade/integração do heartbeat e por `streak.test.ts`.'
+    suggested_action: 'Rodar a verificação manual (conta família.demo@kaionweb.com) antes da demo ao cliente, focando na UX do PlayerFacade/PauseOverlay reais dentro do YouTube embed — algo que teste automatizado não cobre.'
+  - id: 'PERF-001'
+    severity: low
+    finding: '`Number(process.env.VIDEO_XP_DAILY_CAP) || DEFAULT_VIDEO_XP_DAILY_CAP` trata `VIDEO_XP_DAILY_CAP="0"` como "não definido" e cai no default 30, em vez de um teto zero explícito.'
+    suggested_action: 'Trivial, não bloqueante — usar `Number.isFinite(...)` explícito só se algum dia for necessário um teto zero de propósito.'
+waiver: { active: false }
+
+evidence:
+  checks_performed:
+    - check: 'Code review (padrões, legibilidade, manutenibilidade)'
+      verdict: PASS
+      note: 'Reaproveita corretamente LESSON_COMPLETION_XP, utcMidnight/soma diária de AiUsageService, JwtAuthGuard + NO_ACTIVE_PROFILE de LessonsController. REL-001 (único desvio real do padrão citado nas Dev Notes) corrigido — ver resolved_issues.'
+    - check: 'Testes (cobertura adequada, todos passando)'
+      verdict: PASS
+      note: 'Executados nesta revisão (não apenas relatados): API 146 testes/23 suites (era 143 antes do merge da 8.1), todos verdes, incluindo pós-fix do REL-001. video-watch.service.test.ts cobre limiar exato de 80%, dedup diário, teto diário e watchedSeconds monotônico (nunca decresce). video-watch.test.ts (integração) cobre 401 sem token, 400 com positionSeconds negativo, acúmulo+XP ao cruzar 80%, dedup.'
+    - check: 'Acceptance criteria (AC1-6)'
+      verdict: PASS
+      note: 'AC1 GET /videos/:id retorna status inclusive UNAVAILABLE + tela trata; AC2 PlayerFacade só carrega IFrame API após clique (confirmado por teste); AC3 PauseOverlay via onStateChange PAUSED/PLAYING, pointer-events-none, não cobre marca; AC4 heartbeat 10s + backend decide 80% + XpEvent VIDEO_COMPLETED + teto diário; AC5 401 sem token (confirmado); AC6 dedup por @@unique(profileId,videoId,watchDate) + completedAt prévio.'
+    - check: 'Sem regressões'
+      verdict: PASS
+      note: 'pnpm build (4/4), pnpm typecheck (7/7) e pnpm test (28 suites totais) executados nesta revisão — todos verdes, sem regressão nas suites pré-existentes (streak.test.ts, gamification.test.ts, videos.test.ts da 9.2, etc.).'
+    - check: 'Performance'
+      verdict: PASS
+      note: 'PlayerFacade carrega thumbnail estática + script IFrame API só após clique (protege LCP); heartbeat a cada 10s é leve; agregação de XP diário via prisma.aggregate, adequado ao free tier.'
+    - check: 'Segurança (OWASP básico)'
+      verdict: PASS
+      note: 'GET /videos/:id público intencional (mesmo padrão de GET /videos, 9.2); POST /videos/:id/heartbeat corretamente atrás de JwtAuthGuard, corpo validado por ZodValidationPipe (positionSeconds negativo → 400, confirmado por teste); nenhum dado de perfil-criança enviado ao YouTube além do embed padrão youtube-nocookie.com. REL-001 (integridade de dados, não exposição) corrigido — ver resolved_issues.'
+    - check: 'Documentação'
+      verdict: PASS
+      note: 'Scope Note, Dev Notes, Completion Notes e File List completos e coerentes com a implementação; pendência da Subtask 7.2 documentada explicitamente pelo próprio @dev.'
+  special_attention:
+    - point: 'Front nunca decide conclusão sozinho'
+      result: 'CONFIRMADO — front só envia positionSeconds (Math.floor(getCurrentTime())); watchedSeconds >= 0.8 * durationSeconds é calculado inteiramente em VideoWatchService, no backend.'
+    - point: 'watchedSeconds nunca decresce'
+      result: 'CONFIRMADO — Math.max(existing?.watchedSeconds ?? 0, positionSeconds); coberto por teste dedicado (heartbeat com posição menor após uma maior).'
+    - point: 'Teto diário é soma de XP, não contagem de vídeos'
+      result: 'CONFIRMADO — prisma.xpEvent.aggregate({_sum: {amount: true}}) sobre source VIDEO_COMPLETED do dia; vídeo capado ainda é marcado completedAt, sem novo XpEvent (xpCapped: true). Coberto por teste com cap=10.'
+    - point: 'Streak conta automaticamente, sem mudança em GamificationService'
+      result: 'CONFIRMADO — nenhuma alteração em gamification.service.ts; updateStreaks() já considera qualquer XpEvent do dia independente da source. streak.test.ts (pré-existente) segue verde.'
+    - point: 'PlayerFacade não carrega iframe/script antes do clique'
+      result: 'CONFIRMADO — estado activated controla a montagem do YT.Player; useEffect só roda quando activated=true; PlayerFacade.test.tsx assere ausência do script antes do clique e presença depois.'
+    - point: 'Coexistência de VideosController (público) e VideoWatchController (guarded) no mesmo prefixo videos'
+      result: 'CONFIRMADO — GET /videos/:id 200 sem token e POST /videos/:id/heartbeat 401 sem token, ambos confirmados pela suite de integração, sem conflito de rotas.'
+    - point: 'Atomicidade upsert VideoWatch + XpEvent'
+      result: 'CONFIRMADO (após fix) — upsert + checagem de teto + criação condicional do XpEvent agora rodam dentro de um único prisma.$transaction interativo. Ver resolved_issues/REL-001.'

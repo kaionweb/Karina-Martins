@@ -1,0 +1,9 @@
+schema: 1
+story: '5.3'
+gate: PASS
+status_reason: 'seed.ts estendido com seedAccounts, criando a conta familiar (ADULT "Ana" + CHILD "Theo", 3 licoes/30 XP/badges FIRST_LESSON+STREAK_3) e a conta adulta avulsa ("Carlos", 1 licao/10 XP/badge FIRST_LESSON), com senha de demonstracao real hasheada via bcryptjs (mesmo algoritmo/rounds de AuthService), permitindo login real via /auth/login numa demo ao vivo. completeLessonForProfile/awardBadge espelham exatamente LessonsService.completeLesson/GamificationService.awardBadgeIfEligible (duplicacao documentada e intencional, pois packages/database nao pode depender de apps/api). seedCatalog ajustado para retornar os IDs reais das licoes criadas via include na query de criacao, sem query extra. Idempotencia (AC2) confirmada empiricamente: o teste de integracao roda o script real duas vezes contra o TiDB de desenvolvimento e confirma que shows, contas, perfis, XP e badges (contagem do catalogo global via upsert) permanecem estaveis, mesmo padrao delete-then-recreate ja usado desde a Story 2.4 para o catalogo. pnpm typecheck (7/7), test (database 15/15 - 4 novos testes desta story, executando o script real; web 13/13; api 109/109) e build (4/4, sem regressao de ARCH-001) revalidados de forma independente.'
+reviewer: 'Aria'
+reviewed_revision: 'commit:b319188'
+updated: '2026-07-31T00:00:00Z'
+top_issues: []
+waiver: { active: false }

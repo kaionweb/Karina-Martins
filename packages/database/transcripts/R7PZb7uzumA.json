@@ -1,0 +1,104 @@
+{
+  "videoId": "R7PZb7uzumA",
+  "title": "09 gosto de futebol",
+  "sentences": [
+    {
+      "order": 1,
+      "start": 6.16,
+      "end": 12.639,
+      "textEn": "I like Mr. Smith.",
+      "textPt": "Eu gosto do Sr. Smith."
+    },
+    {
+      "order": 2,
+      "start": 10.16,
+      "end": 15.519,
+      "textEn": "Me, too.",
+      "textPt": "Eu também."
+    },
+    {
+      "order": 3,
+      "start": 12.639,
+      "end": 19.279,
+      "textEn": "Do you like baseball?",
+      "textPt": "Você gosta de beisebol?"
+    },
+    {
+      "order": 4,
+      "start": 15.519,
+      "end": 22.68,
+      "textEn": "No, I don't. I like soccer.",
+      "textPt": "Não, não gosto. Eu gosto de futebol."
+    },
+    {
+      "order": 5,
+      "start": 19.279,
+      "end": 22.68,
+      "textEn": "Me, too.",
+      "textPt": "Eu também."
+    },
+    {
+      "order": 6,
+      "start": 26.64,
+      "end": 30.4,
+      "textEn": "Let's play soccer.",
+      "textPt": "Vamos jogar futebol."
+    },
+    {
+      "order": 7,
+      "start": 28.8,
+      "end": 32,
+      "textEn": "Good.",
+      "textPt": "Bom."
+    },
+    {
+      "order": 8,
+      "start": 30.4,
+      "end": 35,
+      "textEn": "Let's go.",
+      "textPt": "Vamos lá."
+    },
+    {
+      "order": 9,
+      "start": 32,
+      "end": 48.04,
+      "textEn": "Okay, Mike. Let's play soccer.",
+      "textPt": "Tudo bem, Mike. Vamos jogar futebol."
+    },
+    {
+      "order": 10,
+      "start": 44,
+      "end": 48.04,
+      "textEn": "Sorry, I can't.",
+      "textPt": "Desculpa, eu não posso."
+    },
+    {
+      "order": 11,
+      "start": 48.079,
+      "end": 51.079,
+      "textEn": "Okay.",
+      "textPt": "Tudo bem."
+    },
+    {
+      "order": 12,
+      "start": 56.32,
+      "end": 60.64,
+      "textEn": "I'm sorry.",
+      "textPt": "Desculpa."
+    },
+    {
+      "order": 13,
+      "start": 58.719,
+      "end": 67.879,
+      "textEn": "It's okay, Mr. Smith.",
+      "textPt": "Tudo bem, Sr. Smith."
+    },
+    {
+      "order": 14,
+      "start": 62.239,
+      "end": 67.879,
+      "textEn": "Hello everyone. I like soccer, too.",
+      "textPt": "Olá, pessoal. Eu também gosto de futebol."
+    }
+  ]
+}

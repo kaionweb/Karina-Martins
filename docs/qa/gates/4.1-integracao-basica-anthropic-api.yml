@@ -1,0 +1,9 @@
+schema: 1
+story: '4.1'
+gate: PASS
+status_reason: 'AiModule/AiService implementam a chamada não-streamed à Anthropic (stream:false hardcoded, AI_STREAMING=true explicitamente rejeitado) com ANTHROPIC_API_KEY lida somente em apps/api (grep confirmou ausência em apps/web). Bug de import circular entre ai.module.ts/ai.service.ts foi encontrado e corrigido pelo próprio @dev (ai.constants.ts). Verificado empiricamente que o SDK Anthropic não lança exceção na ausência de ANTHROPIC_API_KEY (chave ausente no .env local deste ambiente) — os 67 testes de apps/api, incluindo integrações que bootam o AppModule completo com AiModule importado, confirmam que não há regressão de boot. pnpm typecheck (7/7), test (database 13/13, web 8/8, api 67/67) e build (4/4) revalidados de forma independente.'
+reviewer: 'Aria'
+reviewed_revision: 'commit:4424058'
+updated: '2026-07-30T00:00:00Z'
+top_issues: []
+waiver: { active: false }

@@ -1,0 +1,42 @@
+schema: 1
+story: '8.1'
+gate: PASS
+status_reason: 'Os 3 ACs atendidos e verificados em código + testes (146 API/23 suites, 40 web/16 arquivos, sem regressão após o merge com main); mesmo padrão de segurança (isChildProfile) já validado em stories anteriores, sem achados novos.'
+reviewer: 'Quinn (papel executado por @architect, conforme Executor Assignment da story: quality_gate: architect)'
+reviewed_revision: 'commit:75e2727 (merge de feat/8.1-create-child-profile em main)'
+updated: '2026-08-07T21:35:00Z'
+top_issues: []
+waiver: { active: false }
+
+evidence:
+  checks_performed:
+    - check: 'Code review (padrões, legibilidade, manutenibilidade)'
+      verdict: PASS
+      note: 'ProfilesService.createChildProfile reaproveita isChildProfile (mesmo padrão SEC-002 de listForUser/selectProfile, Stories 1.4/4.4); type sempre fixado "CHILD" no backend, nunca aceito como input do cliente; CreateChildProfileSchema restrito a nickname+ageRange, sem campos excedentes.'
+    - check: 'Testes (cobertura adequada, todos passando)'
+      verdict: PASS
+      note: 'Executados nesta revisão (pós-merge com main, não apenas relatados): API 146 testes/23 suites, Web 40 testes/16 arquivos, todos verdes. profiles.test.ts cobre 201 (criação), 403 (perfil ativo CHILD bloqueado) e 400 (nickname ausente). SelectProfilePage.test.tsx cobre o fluxo do formulário inline ponta-a-ponta (mock).'
+    - check: 'Acceptance criteria (AC1-3)'
+      verdict: PASS
+      note: 'AC1 POST /profiles cria CHILD vinculado à conta (userId: activeUser.sub, type fixo); AC2 perfil ativo CHILD bloqueado com 403 (reaproveita isChildProfile); AC3 formulário inline em /select-profile atualiza a lista localmente após a criação, sem novo fetch.'
+    - check: 'Sem regressões'
+      verdict: PASS
+      note: 'pnpm build (4/4), pnpm typecheck (7/7) e pnpm test executados nesta revisão após o merge com main (que trouxe os Epics 7/8/9 e o design system "cinema", commits posteriores ao branch original) — sem conflitos residuais além do já resolvido em packages/shared/src/index.ts (dois exports de schema, ambos mantidos), sem regressão em nenhuma suíte pré-existente.'
+    - check: 'Performance'
+      verdict: PASS
+      note: 'Operação simples (create único via Prisma, sem loops/agregações); lista atualizada no cliente via setState local, sem refetch desnecessário.'
+    - check: 'Segurança (OWASP básico)'
+      verdict: PASS
+      note: 'POST /profiles atrás de JwtAuthGuard; corpo validado por ZodValidationPipe; bloqueio de perfil ativo CHILD confirmado por teste; nenhum dado excedente de perfil CHILD coletado (só nickname+ageRange, conforme CLAUDE.md); domain-compliance.test.ts (Story 5.4) segue verde, travando contra campos excedentes no model Profile.'
+    - check: 'Documentação'
+      verdict: PASS
+      note: 'Scope Note, Dev Notes, Completion Notes e File List completos; Subtask 5.2 (verificação manual no navegador) já executada e documentada pelo próprio @dev antes desta revisão.'
+  special_attention:
+    - point: 'type sempre "CHILD", nunca aceito como input'
+      result: 'CONFIRMADO — CreateChildProfileSchema não tem campo type; ProfilesService.createChildProfile fixa type: "CHILD" no data do Prisma, ignorando qualquer valor que o cliente tente enviar.'
+    - point: 'Perfil ativo CHILD bloqueado de criar novo perfil'
+      result: 'CONFIRMADO — mesma checagem isChildProfile(activeUser.profileId) já usada em listForUser/selectProfile; teste de integração dedicado confirma 403.'
+    - point: 'Sem campos excedentes (nome completo, foto, data de nascimento)'
+      result: 'CONFIRMADO — CreateChildProfileSchema só tem nickname/ageRange; domain-compliance.test.ts (varredura estrutural do schema Prisma, Story 5.4) segue verde após o merge.'
+    - point: 'Merge com main (branch defasada 6 dias, atravessou Epics 7-9 e o redesign visual) não introduziu regressão'
+      result: 'CONFIRMADO — único conflito real foi de forma (duas linhas de export adicionadas no mesmo ponto de packages/shared/src/index.ts), resolvido mantendo ambas; suíte completa revalidada do zero pós-merge, 146+40 testes verdes.'

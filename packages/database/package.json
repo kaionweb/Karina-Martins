@@ -1,0 +1,33 @@
+{
+  "name": "@ipp/database",
+  "private": true,
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "postinstall": "prisma generate",
+    "build": "prisma generate && tsc",
+    "typecheck": "tsc --noEmit",
+    "db:push": "prisma db push",
+    "test": "jest --runInBand",
+    "seed": "tsx seed.ts",
+    "seed:transcripts": "tsx scripts/seed-transcripts.mjs",
+    "backfill:trial-started-at": "tsx scripts/backfill-trial-started-at.ts",
+    "seed:free-after-trial": "tsx scripts/seed-free-after-trial.ts",
+    "seed:listening-free-after-trial": "tsx scripts/seed-listening-free-after-trial.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "6.1.0",
+    "bcryptjs": "^3.0.3",
+    "prisma": "6.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.10.5",
+    "dotenv": "^17.4.2",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.12",
+    "tsx": "^4.23.1",
+    "typescript": "5.7.2"
+  }
+}

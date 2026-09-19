@@ -1,0 +1,468 @@
+{
+  "videoId": "025jNBDqwgs",
+  "title": "9 - O Hospital PamPam e o Novo Traje do Rei",
+  "sentences": [
+    {
+      "order": 1,
+      "start": 0.88,
+      "end": 7.2,
+      "textEn": "Excuse me. Where's the museum?",
+      "textPt": "Com licença. Onde fica o museu?"
+    },
+    {
+      "order": 2,
+      "start": 4.48,
+      "end": 10.24,
+      "textEn": "Over there.",
+      "textPt": "Ali adiante."
+    },
+    {
+      "order": 3,
+      "start": 7.2,
+      "end": 14.599,
+      "textEn": "Thank you.",
+      "textPt": "Obrigado!"
+    },
+    {
+      "order": 4,
+      "start": 10.24,
+      "end": 14.599,
+      "textEn": "Wow, how nice.",
+      "textPt": "Uau, que legal!"
+    },
+    {
+      "order": 5,
+      "start": 15.679,
+      "end": 23.119,
+      "textEn": "Excuse me. Where is this doll?",
+      "textPt": "Com licença. Onde está esta boneca?"
+    },
+    {
+      "order": 6,
+      "start": 19.76,
+      "end": 25.439,
+      "textEn": "Go straight and turn right.",
+      "textPt": "Siga em frente e vire à direita."
+    },
+    {
+      "order": 7,
+      "start": 23.119,
+      "end": 27.599,
+      "textEn": "Thank you.",
+      "textPt": "Obrigado!"
+    },
+    {
+      "order": 8,
+      "start": 25.439,
+      "end": 30.8,
+      "textEn": "Let's go.",
+      "textPt": "Vamos!"
+    },
+    {
+      "order": 9,
+      "start": 27.599,
+      "end": 34.199,
+      "textEn": "Oh, sh I'm sorry.",
+      "textPt": "Ah, me desculpe."
+    },
+    {
+      "order": 10,
+      "start": 35.36,
+      "end": 38.76,
+      "textEn": "Oh, no.",
+      "textPt": "Oh, não!"
+    },
+    {
+      "order": 11,
+      "start": 39.955,
+      "end": 51.879,
+      "textEn": "[music] How's the weather?",
+      "textPt": "[música] Como está o tempo?"
+    },
+    {
+      "order": 12,
+      "start": 53.6,
+      "end": 59.719,
+      "textEn": "It's raining.",
+      "textPt": "Está chovendo."
+    },
+    {
+      "order": 13,
+      "start": 56.16,
+      "end": 59.719,
+      "textEn": "Oh no.",
+      "textPt": "Ah, não."
+    },
+    {
+      "order": 14,
+      "start": 63.44,
+      "end": 68.799,
+      "textEn": "How's the weather?",
+      "textPt": "Como está o tempo?"
+    },
+    {
+      "order": 15,
+      "start": 65.92,
+      "end": 72.439,
+      "textEn": "It's sunny.",
+      "textPt": "Está ensolarado."
+    },
+    {
+      "order": 16,
+      "start": 68.799,
+      "end": 72.439,
+      "textEn": "Oh no.",
+      "textPt": "Ah, não."
+    },
+    {
+      "order": 17,
+      "start": 75.84,
+      "end": 84.04,
+      "textEn": "Look, it's raining.",
+      "textPt": "Olhe, está chovendo."
+    },
+    {
+      "order": 18,
+      "start": 79.36,
+      "end": 84.04,
+      "textEn": "Okay, sounds good.",
+      "textPt": "Certo, combinado."
+    },
+    {
+      "order": 19,
+      "start": 86.799,
+      "end": 90.52,
+      "textEn": "It's sunny now.",
+      "textPt": "Agora está fazendo sol."
+    },
+    {
+      "order": 20,
+      "start": 90.64,
+      "end": 96.341,
+      "textEn": "That's good.",
+      "textPt": "Que bom!"
+    },
+    {
+      "order": 21,
+      "start": 94.321,
+      "end": 104,
+      "textEn": "[music] Grumpy, happy Dopey.",
+      "textPt": "[música] Zangado, Feliz, Dunga."
+    },
+    {
+      "order": 22,
+      "start": 102.4,
+      "end": 106.479,
+      "textEn": "Coming.",
+      "textPt": "Já estou indo!"
+    },
+    {
+      "order": 23,
+      "start": 104,
+      "end": 110.68,
+      "textEn": "Let's play outside.",
+      "textPt": "Vamos brincar lá fora."
+    },
+    {
+      "order": 24,
+      "start": 106.479,
+      "end": 110.68,
+      "textEn": "Sorry, we can't.",
+      "textPt": "Desculpe, não podemos."
+    },
+    {
+      "order": 25,
+      "start": 111.52,
+      "end": 117.84,
+      "textEn": "It's raining.",
+      "textPt": "Está chovendo."
+    },
+    {
+      "order": 26,
+      "start": 114.079,
+      "end": 120,
+      "textEn": "It's not raining. It's snowing.",
+      "textPt": "Não está chovendo. Está nevando."
+    },
+    {
+      "order": 27,
+      "start": 117.84,
+      "end": 122.079,
+      "textEn": "Snow.",
+      "textPt": "Neve."
+    },
+    {
+      "order": 28,
+      "start": 120,
+      "end": 125.719,
+      "textEn": "Look, it's snowing.",
+      "textPt": "Olhe, está nevando."
+    },
+    {
+      "order": 29,
+      "start": 122.079,
+      "end": 125.719,
+      "textEn": "It's all white.",
+      "textPt": "Está tudo branco."
+    },
+    {
+      "order": 30,
+      "start": 128.879,
+      "end": 132.44,
+      "textEn": "A nice hat.",
+      "textPt": "Um chapéu bonito."
+    },
+    {
+      "order": 31,
+      "start": 133.599,
+      "end": 136.48,
+      "textEn": "What's that?",
+      "textPt": "O que é aquilo?"
+    },
+    {
+      "order": 32,
+      "start": 134.959,
+      "end": 137.92,
+      "textEn": "It's an apple.",
+      "textPt": "É uma maçã."
+    },
+    {
+      "order": 33,
+      "start": 136.48,
+      "end": 141.12,
+      "textEn": "Oh, no.",
+      "textPt": "Oh, não!"
+    },
+    {
+      "order": 34,
+      "start": 137.92,
+      "end": 141.12,
+      "textEn": "No apples.",
+      "textPt": "Sem maçãs."
+    },
+    {
+      "order": 35,
+      "start": 142.48,
+      "end": 147.28,
+      "textEn": "Can you help me?",
+      "textPt": "Você pode me ajudar?"
+    },
+    {
+      "order": 36,
+      "start": 144.239,
+      "end": 150.48,
+      "textEn": "Sure, please.",
+      "textPt": "Claro, por favor."
+    },
+    {
+      "order": 37,
+      "start": 147.28,
+      "end": 153.48,
+      "textEn": "You can eat this apple.",
+      "textPt": "Você pode comer esta maçã."
+    },
+    {
+      "order": 38,
+      "start": 150.48,
+      "end": 171.599,
+      "textEn": "Oh, [music] [music] I don't like the red coat.",
+      "textPt": "Ah, [música] [música] Eu não gosto do casaco vermelho."
+    },
+    {
+      "order": 39,
+      "start": 168.64,
+      "end": 175.239,
+      "textEn": "Do you like this coat?",
+      "textPt": "Você gosta deste casaco?"
+    },
+    {
+      "order": 40,
+      "start": 171.599,
+      "end": 175.239,
+      "textEn": "No, I don't.",
+      "textPt": "Não, não gosto."
+    },
+    {
+      "order": 41,
+      "start": 176.196,
+      "end": 189.12,
+      "textEn": "[music] They can make a good coat.",
+      "textPt": "[música] Eles podem fazer um bom casaco."
+    },
+    {
+      "order": 42,
+      "start": 185.519,
+      "end": 191.262,
+      "textEn": "Great. Make a good coat.",
+      "textPt": "Ótimo. Façam um bom casaco."
+    },
+    {
+      "order": 43,
+      "start": 189.12,
+      "end": 193.282,
+      "textEn": "Okay.",
+      "textPt": "Tudo bem."
+    },
+    {
+      "order": 44,
+      "start": 191.262,
+      "end": 202.599,
+      "textEn": "[music] Stand up, please.",
+      "textPt": "[música] Levante-se, por favor."
+    },
+    {
+      "order": 45,
+      "start": 202.8,
+      "end": 206.84,
+      "textEn": "Put on this coat, please.",
+      "textPt": "Vista este casaco, por favor."
+    },
+    {
+      "order": 46,
+      "start": 207.2,
+      "end": 210.2,
+      "textEn": "Okay.",
+      "textPt": "Tudo bem."
+    },
+    {
+      "order": 47,
+      "start": 210.912,
+      "end": 220.68,
+      "textEn": "[music] How nice.",
+      "textPt": "[música] Que lindo!"
+    },
+    {
+      "order": 48,
+      "start": 216,
+      "end": 220.68,
+      "textEn": "Good. I like this coat.",
+      "textPt": "Muito bem. Eu gosto deste casaco."
+    },
+    {
+      "order": 49,
+      "start": 221.392,
+      "end": 235.48,
+      "textEn": "[music] It's raining.",
+      "textPt": "[música] Está chovendo."
+    },
+    {
+      "order": 50,
+      "start": 231.519,
+      "end": 235.48,
+      "textEn": "It's windy, too.",
+      "textPt": "Está ventando também."
+    },
+    {
+      "order": 51,
+      "start": 236.56,
+      "end": 241.48,
+      "textEn": "It's okay. Umbrella, please.",
+      "textPt": "Está tudo bem. O guarda-chuva, por favor."
+    },
+    {
+      "order": 52,
+      "start": 242.879,
+      "end": 248.302,
+      "textEn": "Put on your coat, please.",
+      "textPt": "Vista seu casaco, por favor."
+    },
+    {
+      "order": 53,
+      "start": 246.282,
+      "end": 254.197,
+      "textEn": "[laughter] It's too cold.",
+      "textPt": "[risos] Está frio demais."
+    },
+    {
+      "order": 54,
+      "start": 252.177,
+      "end": 266.199,
+      "textEn": "[music] You [music] can go to the Christmas party. Mr. Lawrence is waiting for you all.",
+      "textPt": "[música] Vocês [música] podem ir à festa de Natal. O Sr. Lawrence está esperando por todos vocês."
+    },
+    {
+      "order": 55,
+      "start": 263.199,
+      "end": 266.199,
+      "textEn": "Great.",
+      "textPt": "Que ótimo!"
+    },
+    {
+      "order": 56,
+      "start": 268.96,
+      "end": 274.639,
+      "textEn": "Me, is this your dress?",
+      "textPt": "Me, este é o seu vestido?"
+    },
+    {
+      "order": 57,
+      "start": 271.84,
+      "end": 276.72,
+      "textEn": "Yes, it's mine.",
+      "textPt": "Sim, é meu."
+    },
+    {
+      "order": 58,
+      "start": 274.639,
+      "end": 280.4,
+      "textEn": "Is this your hat?",
+      "textPt": "Este chapéu é seu?"
+    },
+    {
+      "order": 59,
+      "start": 276.72,
+      "end": 285.36,
+      "textEn": "No, it's not mine. Mom, how's the weather outside?",
+      "textPt": "Não, não é meu. Mamãe, como está o tempo lá fora?"
+    },
+    {
+      "order": 60,
+      "start": 282.8,
+      "end": 288.479,
+      "textEn": "It's cold and snowy. Please put on your coats, everyone.",
+      "textPt": "Está frio e nevando. Por favor, vistam seus casacos, pessoal."
+    },
+    {
+      "order": 61,
+      "start": 287.12,
+      "end": 290.8,
+      "textEn": "Yes, Mom.",
+      "textPt": "Sim, mamãe."
+    },
+    {
+      "order": 62,
+      "start": 288.479,
+      "end": 294.08,
+      "textEn": "Put on your gloves, too.",
+      "textPt": "Coloquem suas luvas também."
+    },
+    {
+      "order": 63,
+      "start": 290.8,
+      "end": 299.32,
+      "textEn": "Mom, my shoes are too small.",
+      "textPt": "Mamãe, meus sapatos estão muito pequenos."
+    },
+    {
+      "order": 64,
+      "start": 294.08,
+      "end": 299.32,
+      "textEn": "Take these. You can have mine.",
+      "textPt": "Pegue estes. Pode ficar com os meus."
+    },
+    {
+      "order": 65,
+      "start": 300.56,
+      "end": 305.199,
+      "textEn": "You're very kind.",
+      "textPt": "Você é muito gentil."
+    },
+    {
+      "order": 66,
+      "start": 302.88,
+      "end": 305.199,
+      "textEn": "Good.",
+      "textPt": "Muito bem."
+    }
+  ]
+}

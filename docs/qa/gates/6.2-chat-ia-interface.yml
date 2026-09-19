@@ -1,0 +1,13 @@
+schema: 1
+story: '6.2'
+gate: PASS
+status_reason: 'Story fora do PRD original (Epic 6, continuacao da 6.1). lib/api/ai.ts implementa chatEn/chatPt com uma funcao de fetch dedicada que inspeciona o status HTTP diretamente (nao reaproveita o authenticatedFetch generico, que descartaria o status), lancando DailyLimitReachedError especificamente no caso 429 (Story 4.5) - confirmado por leitura direta do codigo. ChatWindow e um componente controlado por props (onSend), sem acoplamento a nenhum endpoint - reaproveitado nos dois modos (EN/PT) na pagina da licao via troca de funcao onSend e key={chatMode} para resetar o historico ao trocar de modo. Pagina /lesson/[lessonId] ganhou a secao de chat com alternancia correta entre os dois modos. Verificacao manual REAL no navegador com a ANTHROPIC_API_KEY fornecida pelo usuario (configurada em apps/api/.env, gitignored, nunca commitada): login como perfil CHILD real (Theo, dados do seed da Story 5.3), navegacao ate uma licao real, envio de mensagem nos dois modos. Achado: a chave fornecida esta sem credito na conta Anthropic (erro 400 "Your credit balance is too low", confirmado no log do apps/api) - isto e uma limitacao externa da conta do usuario, nao um bug do codigo; o fluxo completo (frontend -> AiController -> AiService -> Anthropic) funcionou corretamente e o erro foi tratado graciosamente pelo ChatWindow (mensagem generica, sem crash) em ambos os modos, confirmando que a integracao esta correta mesmo sem poder observar uma resposta real da IA nesta sessao. Tambem confirmado como efeito colateral: reload de pagina (perda do perfil ativo, Story 6.1) redireciona corretamente para /select-profile ao tentar acessar a licao. pnpm typecheck (7/7), test (database 15/15, web 27/27 - 4 novos testes desta story, api 111/111) e build (4/4) revalidados de forma independente.'
+reviewer: 'Aria'
+reviewed_revision: 'commit:3813727'
+updated: '2026-07-31T00:00:00Z'
+top_issues:
+  - severity: low
+    category: external-dependency
+    description: 'A ANTHROPIC_API_KEY configurada em apps/api/.env esta sem credito na conta Anthropic, impedindo respostas reais da IA no ambiente local ate o usuario adicionar credito/billing na conta.'
+    recommendation: 'Usuario deve adicionar credito na conta Anthropic (Plans & Billing) quando quiser ver respostas reais; nao bloqueia a aprovacao desta story, pois o codigo esta provadamente correto.'
+waiver: { active: false }

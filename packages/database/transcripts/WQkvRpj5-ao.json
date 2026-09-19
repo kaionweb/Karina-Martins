@@ -1,0 +1,90 @@
+{
+  "videoId": "WQkvRpj5-ao",
+  "title": "05 a bicicleta nova do mike",
+  "sentences": [
+    {
+      "order": 1,
+      "start": 4.319,
+      "end": 10.639,
+      "textEn": "What time do you get up?",
+      "textPt": "A que horas você acorda?"
+    },
+    {
+      "order": 2,
+      "start": 7.12,
+      "end": 16.8,
+      "textEn": "I get up at 6:00. I go to school at 7:30.",
+      "textPt": "Eu acordo às 6h. Eu vou pra escola às 7h30."
+    },
+    {
+      "order": 3,
+      "start": 13.04,
+      "end": 20.039,
+      "textEn": "Wow, you're an early bird.",
+      "textPt": "Uau, você acorda bem cedo."
+    },
+    {
+      "order": 4,
+      "start": 16.8,
+      "end": 20.039,
+      "textEn": "Thank you.",
+      "textPt": "Obrigado."
+    },
+    {
+      "order": 5,
+      "start": 22.56,
+      "end": 29.359,
+      "textEn": "Look, it's a new bike.",
+      "textPt": "Olha, é uma bicicleta nova."
+    },
+    {
+      "order": 6,
+      "start": 26.32,
+      "end": 34.16,
+      "textEn": "What a nice bike.",
+      "textPt": "Que bicicleta legal."
+    },
+    {
+      "order": 7,
+      "start": 29.359,
+      "end": 37.48,
+      "textEn": "Yes, it's very nice. Whose bike is this?",
+      "textPt": "Sim, é bem legal. De quem é essa bicicleta?"
+    },
+    {
+      "order": 8,
+      "start": 34.16,
+      "end": 37.48,
+      "textEn": "It's Mike's.",
+      "textPt": "É do Mike."
+    },
+    {
+      "order": 9,
+      "start": 38,
+      "end": 43.92,
+      "textEn": "Mike, is this your bike?",
+      "textPt": "Mike, essa é a sua bicicleta?"
+    },
+    {
+      "order": 10,
+      "start": 41.28,
+      "end": 47.44,
+      "textEn": "Yes, it's mine.",
+      "textPt": "Sim, é minha."
+    },
+    {
+      "order": 11,
+      "start": 43.92,
+      "end": 50.44,
+      "textEn": "Wow, you have a nice bike.",
+      "textPt": "Uau, você tem uma bicicleta legal."
+    },
+    {
+      "order": 12,
+      "start": 47.44,
+      "end": 50.44,
+      "textEn": "Thanks.",
+      "textPt": "Obrigado."
+    }
+  ]
+}

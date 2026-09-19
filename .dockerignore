@@ -1,0 +1,16 @@
+node_modules
+**/node_modules
+dist
+**/dist
+.next
+**/.next
+.turbo
+**/.turbo
+.git
+.env
+**/.env
+**/.env.local
+docs
+.aiox-core
+.claude
+.vscode

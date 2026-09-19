@@ -1,0 +1,9 @@
+schema: 1
+story: '5.2'
+gate: PASS
+status_reason: 'resolveChildProfile extraido de getJourney (Story 5.1) sem alterar seu comportamento - confirmado que os testes da Story 5.1 continuam passando inalterados. getTranscripts reaproveita o mesmo metodo para as mesmas regras de acesso (403 perfil ativo CHILD, 404 perfil-alvo invalido/nao-CHILD/nao-seu, sem diferenciar motivo). Consulta busca AiSession com messages (ordenadas asc) e lesson (para lessonTitle), ordenadas por createdAt desc - confirmado por teste que a sessao mais recente vem primeiro. flaggedByFilter exposto corretamente por mensagem; teste de integracao gerou uma AiSession reprovada pelo filtro de conteudo (Story 4.4) via chamada real ao endpoint /ai/chat/en e confirmou que o texto reprovado original nunca aparece na transcricao, apenas o fallback, com flaggedByFilter=true. Frontend: TranscriptList sinaliza visualmente mensagens filtradas; pagina /dashboard/transcripts/[profileId] segue o mesmo padrao ja estabelecido; JourneyCard ganhou link para a nova rota sem quebrar nenhum teste existente da Story 5.1. pnpm typecheck (7/7), test (database 13/13, web 13/13, api 109/109 - 8 novos testes desta story) e build (4/4, rota nova corretamente Dynamic dado o segmento [profileId], sem regressao de ARCH-001) revalidados de forma independente. Com esta story, o Parent Dashboard Module cobre as duas dependencias descritas na arquitetura (Gamification Module e AI Tutor Module).'
+reviewer: 'Aria'
+reviewed_revision: 'commit:a2ae481'
+updated: '2026-07-31T00:00:00Z'
+top_issues: []
+waiver: { active: false }

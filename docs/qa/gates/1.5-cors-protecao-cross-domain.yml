@@ -1,0 +1,9 @@
+schema: 1
+story: '1.5'
+gate: PASS
+status_reason: 'CORS restrito a WEB_URL com fail-fast verificado (buildCorsOptions lança se ausente/vazia); testes confirmam que origin maliciosa nunca é refletida nem vira "*". GET /health confere 200 sem tocar o banco (HealthController/HealthModule inspecionados, sem import de @ipp/database). 37/37 testes passando, typecheck limpo, sem regressão.'
+reviewer: 'Quinn'
+reviewed_revision: 'uncommitted working tree (pré-commit)'
+updated: '2026-07-30T00:00:00Z'
+top_issues: []
+waiver: { active: false }

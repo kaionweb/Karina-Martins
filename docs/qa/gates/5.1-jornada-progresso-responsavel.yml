@@ -1,0 +1,9 @@
+schema: 1
+story: '5.1'
+gate: PASS
+status_reason: 'ParentService.getJourney bloqueia perfil ativo CHILD (403, reaproveitando ProfilesService.isChildProfile da Story 4.4) e valida o perfil-alvo com o mesmo padrao de nao diferenciar motivo (404 para inexistente/nao-seu/nao-CHILD) ja estabelecido em ProfilesService.selectProfile (SEC-002, Story 1.4) - confirmado por leitura direta do codigo. Agregacao de XP/badges reaproveita GamificationService.getXpTotal/getBadges sem alteracao (ambos ja recebiam profileId como parametro); completedLessons e uma consulta nova via LessonProgress, sem duplicar logica existente. Endpoint GET /parent/profiles/:id/journey registrado em ParentModule/AppModule corretamente. Frontend: /dashboard (Client Component) reaproveita XpBar/BadgeGrid sem modifica-los, primeiro consumidor real de GET /profiles (existente desde a Story 1.4). Testes cobrem 401/403/404 (duas variantes)/200 no backend, usando o fluxo real (POST /lessons/:id/complete) para gerar dados organicamente em vez de inserts sinteticos; JourneyCard.test.tsx segue o padrao ja estabelecido de BadgeGrid.test.tsx. pnpm typecheck (7/7), test (database 13/13, web 10/10, api 104/104 - 7 novos testes desta story) e build (4/4, /dashboard corretamente Static, sem regressao de ARCH-001) revalidados de forma independente.'
+reviewer: 'Aria'
+reviewed_revision: 'commit:15c5de9'
+updated: '2026-07-31T00:00:00Z'
+top_issues: []
+waiver: { active: false }

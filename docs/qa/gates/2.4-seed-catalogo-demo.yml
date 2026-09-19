@@ -1,0 +1,9 @@
+schema: 1
+story: '2.4'
+gate: PASS
+status_reason: 'seed.ts cria os 2 shows esperados (1 trilha, 5 lições cada, conteúdo original) e é idempotente (deleteMany por título antes de recriar, confirmado rodando 2x). Precauções contra os bugs de resolução de módulo das Stories 2.2/2.3 aplicadas corretamente: roda via tsx, não entra no include do tsconfig.json — dist/ confirmado limpo (só index.js/index.d.ts). pnpm build (4/4), typecheck (7/7) e test (database 10/10, api 47/47, web 4/4) revalidados de forma independente.'
+reviewer: 'Dex'
+reviewed_revision: 'uncommitted working tree (pré-commit)'
+updated: '2026-07-30T00:00:00Z'
+top_issues: []
+waiver: { active: false }

@@ -1,0 +1,335 @@
+{
+  "videoId": "cqhkqoBksH8",
+  "title": "1 - Pinoquio e Cinderela   O Relogio Bate Meia Noite",
+  "sentences": [
+    {
+      "order": 1,
+      "start": 20.16,
+      "end": 24.359,
+      "textEn": "Hello. I'm Pinocchio.",
+      "textPt": "Olá. Eu sou o Pinóquio."
+    },
+    {
+      "order": 2,
+      "start": 32.079,
+      "end": 38.76,
+      "textEn": "Wow. What's that?",
+      "textPt": "Uau. O que é aquilo?"
+    },
+    {
+      "order": 3,
+      "start": 35.2,
+      "end": 38.76,
+      "textEn": "It's a book.",
+      "textPt": "É um livro."
+    },
+    {
+      "order": 4,
+      "start": 40.16,
+      "end": 45.32,
+      "textEn": "Thank you.",
+      "textPt": "Obrigado."
+    },
+    {
+      "order": 5,
+      "start": 41.92,
+      "end": 45.32,
+      "textEn": "You're welcome.",
+      "textPt": "De nada."
+    },
+    {
+      "order": 6,
+      "start": 46.64,
+      "end": 50.8,
+      "textEn": "What's this?",
+      "textPt": "O que é isto?"
+    },
+    {
+      "order": 7,
+      "start": 48.64,
+      "end": 54.12,
+      "textEn": "It's a box.",
+      "textPt": "É uma caixa."
+    },
+    {
+      "order": 8,
+      "start": 50.8,
+      "end": 54.12,
+      "textEn": "A box.",
+      "textPt": "Uma caixa."
+    },
+    {
+      "order": 9,
+      "start": 55.12,
+      "end": 59,
+      "textEn": "Wow. Pizza.",
+      "textPt": "Uau. Pizza."
+    },
+    {
+      "order": 10,
+      "start": 62.225,
+      "end": 67.879,
+      "textEn": "[screaming] What's that?",
+      "textPt": "[gritando] O que é aquilo?"
+    },
+    {
+      "order": 11,
+      "start": 74.015,
+      "end": 79.96,
+      "textEn": "[music] Thank you. You're welcome.",
+      "textPt": "[música] Obrigado. De nada."
+    },
+    {
+      "order": 12,
+      "start": 89.68,
+      "end": 94.64,
+      "textEn": "Good morning, Mrs. Keller.",
+      "textPt": "Bom dia, Senhora Keller."
+    },
+    {
+      "order": 13,
+      "start": 92.079,
+      "end": 98.961,
+      "textEn": "Good morning, Miss Sullivan. This is Helen.",
+      "textPt": "Bom dia, Senhorita Sullivan. Esta é a Helen."
+    },
+    {
+      "order": 14,
+      "start": 96.941,
+      "end": 115.079,
+      "textEn": "[music] [music] What's this? It's a pencil.",
+      "textPt": "[música] [música] O que é isto? É um lápis."
+    },
+    {
+      "order": 15,
+      "start": 118.56,
+      "end": 124.28,
+      "textEn": "What's this?",
+      "textPt": "O que é isto?"
+    },
+    {
+      "order": 16,
+      "start": 120.64,
+      "end": 124.28,
+      "textEn": "It's an eraser.",
+      "textPt": "É uma borracha."
+    },
+    {
+      "order": 17,
+      "start": 127.52,
+      "end": 133.84,
+      "textEn": "What's this?",
+      "textPt": "O que é isto?"
+    },
+    {
+      "order": 18,
+      "start": 130.8,
+      "end": 133.84,
+      "textEn": "It's a ruler.",
+      "textPt": "É uma régua."
+    },
+    {
+      "order": 19,
+      "start": 138.861,
+      "end": 154.8,
+      "textEn": "[music] [music] This is Cinderella.",
+      "textPt": "[música] [música] Esta é a Cinderela."
+    },
+    {
+      "order": 20,
+      "start": 152.959,
+      "end": 158.511,
+      "textEn": "Nice to meet you.",
+      "textPt": "Prazer em te conhecer."
+    },
+    {
+      "order": 21,
+      "start": 154.8,
+      "end": 159.68,
+      "textEn": "Nice to meet you, too.",
+      "textPt": "Prazer em te conhecer também."
+    },
+    {
+      "order": 22,
+      "start": 158.511,
+      "end": 165.44,
+      "textEn": "[music] What time is it? It's 12:00.",
+      "textPt": "[música] Que horas são? É meio-dia."
+    },
+    {
+      "order": 23,
+      "start": 163.751,
+      "end": 169.319,
+      "textEn": "[bell] What? Oh no.",
+      "textPt": "[sino] O quê? Ah, não."
+    },
+    {
+      "order": 24,
+      "start": 170.301,
+      "end": 178.16,
+      "textEn": "[bell] [music] Is this yours?",
+      "textPt": "[sino] [música] Isto é seu?"
+    },
+    {
+      "order": 25,
+      "start": 175.2,
+      "end": 182.68,
+      "textEn": "Yes, it's mine.",
+      "textPt": "Sim, é meu."
+    },
+    {
+      "order": 26,
+      "start": 178.16,
+      "end": 182.68,
+      "textEn": "No, it's not yours.",
+      "textPt": "Não, não é seu."
+    },
+    {
+      "order": 27,
+      "start": 183.68,
+      "end": 190.2,
+      "textEn": "Is this yours?",
+      "textPt": "Isto é seu?"
+    },
+    {
+      "order": 28,
+      "start": 186.239,
+      "end": 190.2,
+      "textEn": "Yes, it's mine.",
+      "textPt": "Sim, é meu."
+    },
+    {
+      "order": 29,
+      "start": 191.262,
+      "end": 198.84,
+      "textEn": "[music] Oh, it's yours. I love you.",
+      "textPt": "[música] Ah, é seu. Eu amo você."
+    },
+    {
+      "order": 30,
+      "start": 201.742,
+      "end": 209.36,
+      "textEn": "[music] What time is it?",
+      "textPt": "[música] Que horas são?"
+    },
+    {
+      "order": 31,
+      "start": 207.12,
+      "end": 211.68,
+      "textEn": "It's 12:00.",
+      "textPt": "São 12 horas."
+    },
+    {
+      "order": 32,
+      "start": 209.36,
+      "end": 215.959,
+      "textEn": "Time for lunch, Cinderella. Lunchtime.",
+      "textPt": "Hora do almoço, Cinderela. Hora do almoço."
+    },
+    {
+      "order": 33,
+      "start": 216.56,
+      "end": 220.84,
+      "textEn": "Okay, coming.",
+      "textPt": "Tudo bem, já estou indo."
+    },
+    {
+      "order": 34,
+      "start": 225.36,
+      "end": 230.08,
+      "textEn": "What time is it?",
+      "textPt": "Que horas são?"
+    },
+    {
+      "order": 35,
+      "start": 227.92,
+      "end": 232.56,
+      "textEn": "It's 5:30.",
+      "textPt": "São 5 e meia."
+    },
+    {
+      "order": 36,
+      "start": 230.08,
+      "end": 235.36,
+      "textEn": "It's party time.",
+      "textPt": "É hora da festa."
+    },
+    {
+      "order": 37,
+      "start": 232.56,
+      "end": 237.767,
+      "textEn": "Let's go.",
+      "textPt": "Vamos lá."
+    },
+    {
+      "order": 38,
+      "start": 235.36,
+      "end": 239.787,
+      "textEn": "Please wait for me.",
+      "textPt": "Por favor, espere por mim."
+    },
+    {
+      "order": 39,
+      "start": 237.767,
+      "end": 249.959,
+      "textEn": "[music] Cinderella, close your eyes.",
+      "textPt": "[música] Cinderela, feche os olhos."
+    },
+    {
+      "order": 40,
+      "start": 252.159,
+      "end": 259.04,
+      "textEn": "Open your eyes, please.",
+      "textPt": "Abra os olhos, por favor."
+    },
+    {
+      "order": 41,
+      "start": 254.879,
+      "end": 262.04,
+      "textEn": "Wow. Thanks. You're welcome. Party time, Cinderella.",
+      "textPt": "Uau. Obrigado. De nada. Hora da festa, Cinderela."
+    },
+    {
+      "order": 42,
+      "start": 262.657,
+      "end": 269.918,
+      "textEn": "[music] Time for dancing.",
+      "textPt": "[música] Hora de dançar."
+    },
+    {
+      "order": 43,
+      "start": 267.898,
+      "end": 277.12,
+      "textEn": "[music] What time is it?",
+      "textPt": "[música] Que horas são?"
+    },
+    {
+      "order": 44,
+      "start": 274.479,
+      "end": 282,
+      "textEn": "It's 11:00.",
+      "textPt": "São 11 horas."
+    },
+    {
+      "order": 45,
+      "start": 277.12,
+      "end": 285.88,
+      "textEn": "Oh no, it's late. Good night.",
+      "textPt": "Ah, não, está tarde. Boa noite."
+    },
+    {
+      "order": 46,
+      "start": 282,
+      "end": 285.88,
+      "textEn": "Please wait for me.",
+      "textPt": "Por favor, espere por mim."
+    },
+    {
+      "order": 47,
+      "start": 286.893,
+      "end": 298.4,
+      "textEn": "[music] Hm. What day is it? It's",
+      "textPt": "[música] Hum. Que dia é hoje? É"
+    }
+  ]
+}

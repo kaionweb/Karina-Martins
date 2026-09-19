@@ -1,0 +1,9 @@
+schema: 1
+story: '4.2'
+gate: PASS
+status_reason: 'AiController expõe POST /ai/chat/en protegido por JwtAuthGuard, valida o corpo com ChatEnSchema (lessonId cuid + message 1-2000 chars), busca a lição via LessonsService.getLesson (404 reaproveitado, sem duplicar lógica) e monta o system prompt via buildEnglishTutorSystemPrompt, que embute o título/conteúdo da lição como único tema permitido e instrui recusa educada + redirecionamento quando a criança sai do escopo (AC1, AC2). Chamada a AiService.sendMessage usa model claude-haiku-4-5 fixo (AC3), sem alterar AiService da Story 4.1. Escopo corretamente contido: sem checagem de AI_DAILY_LIMIT, sem filtro de conteúdo pré-persistência e sem gravação em AiSession/AiMessage — todos explicitamente atribuídos às Stories 4.5/4.4 no PRD, não inventados aqui. LessonsModule passou a exportar LessonsService (única mudança necessária, sem efeitos colaterais). Testes cobrem unit (prompt contém tema + instrução de recusa) e integração com ANTHROPIC_CLIENT mockado via overrideProvider no AppModule completo (sem chamada real): 401 sem token, 400 corpo inválido, 404 lição inexistente, 200 com { reply } confirmando model e system corretos. pnpm typecheck (7/7), test (database 13/13, web 8/8, api 73/73 — 6 novos testes desta story) e build (4/4, sem regressão de ARCH-001) revalidados de forma independente.'
+reviewer: 'Aria'
+reviewed_revision: 'commit:8dd25ae'
+updated: '2026-07-31T00:00:00Z'
+top_issues: []
+waiver: { active: false }

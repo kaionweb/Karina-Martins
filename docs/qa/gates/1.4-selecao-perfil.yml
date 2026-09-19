@@ -1,0 +1,9 @@
+schema: 1
+story: '1.4'
+gate: PASS
+status_reason: 'SEC-002 corrigido e verificado: selectProfile agora recebe o payload completo do token ativo e bloqueia qualquer troca de perfil quando o perfil ativo é CHILD. 3 testes de regressão cobrindo o cenário de exploração original, 19/19 testes passando, lint/typecheck/build limpos.'
+reviewer: 'Quinn'
+reviewed_revision: 'uncommitted working tree (pré-commit)'
+updated: '2026-07-29T00:00:00Z'
+top_issues: []
+waiver: { active: false }

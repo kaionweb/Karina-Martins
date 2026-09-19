@@ -1,0 +1,9 @@
+schema: 1
+story: '3.1'
+gate: PASS
+status_reason: 'Model XpEvent correto (enum de fontes, FK cascade, índice). Verificação estrutural confirma que nenhum model tem campo de XP mutável — total sempre por agregação. Teste prova a soma exata via SUM(amount) e cascade delete. pnpm build (4/4), typecheck (7/7) e test (database 13/13, api 47/47, web 4/4) revalidados de forma independente.'
+reviewer: 'Dex'
+reviewed_revision: 'uncommitted working tree (pré-commit)'
+updated: '2026-07-30T00:00:00Z'
+top_issues: []
+waiver: { active: false }

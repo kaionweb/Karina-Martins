@@ -1,0 +1,335 @@
+{
+  "videoId": "yo73Kqpapb0",
+  "title": "6 - O Rato do Campo Branca de Neve e a Cigarra e a Formiga",
+  "sentences": [
+    {
+      "order": 1,
+      "start": 1.6800000000000002,
+      "end": 6.604,
+      "textEn": "Oh, it's great.",
+      "textPt": "Ah, é ótimo!"
+    },
+    {
+      "order": 2,
+      "start": 4.584,
+      "end": 14.599,
+      "textEn": "[music] Do you want some more chicken? Yes, please. Thank you.",
+      "textPt": "[música] Você quer mais um pouco de frango? Sim, por favor. Obrigado."
+    },
+    {
+      "order": 3,
+      "start": 27.279,
+      "end": 33.64,
+      "textEn": "Hello. How are you? I'm good, thanks.",
+      "textPt": "Olá. Como você está? Eu estou bem, obrigado."
+    },
+    {
+      "order": 4,
+      "start": 33.84,
+      "end": 38.84,
+      "textEn": "Can I come in?",
+      "textPt": "Posso entrar?"
+    },
+    {
+      "order": 5,
+      "start": 35.84,
+      "end": 38.84,
+      "textEn": "Sure.",
+      "textPt": "Claro."
+    },
+    {
+      "order": 6,
+      "start": 39.68,
+      "end": 46.719,
+      "textEn": "Do you like apples?",
+      "textPt": "Você gosta de maçãs?"
+    },
+    {
+      "order": 7,
+      "start": 42.559,
+      "end": 48.559,
+      "textEn": "Yes, I like apples.",
+      "textPt": "Sim, eu gosto de maçãs."
+    },
+    {
+      "order": 8,
+      "start": 46.719,
+      "end": 51.559,
+      "textEn": "Help yourself.",
+      "textPt": "Pode se servir."
+    },
+    {
+      "order": 9,
+      "start": 48.559,
+      "end": 51.559,
+      "textEn": "Thanks.",
+      "textPt": "Obrigado."
+    },
+    {
+      "order": 10,
+      "start": 54.32,
+      "end": 59.719,
+      "textEn": "Do you want some more?",
+      "textPt": "Você quer mais um pouco?"
+    },
+    {
+      "order": 11,
+      "start": 56.399,
+      "end": 59.719,
+      "textEn": "No thanks.",
+      "textPt": "Não, obrigado."
+    },
+    {
+      "order": 12,
+      "start": 65.84,
+      "end": 69.76,
+      "textEn": "Are you okay?",
+      "textPt": "Você está bem?"
+    },
+    {
+      "order": 13,
+      "start": 67.28,
+      "end": 73.56,
+      "textEn": "I'm okay. Thank you.",
+      "textPt": "Estou bem. Obrigado."
+    },
+    {
+      "order": 14,
+      "start": 69.76,
+      "end": 73.56,
+      "textEn": "I'm so happy.",
+      "textPt": "Estou tão feliz!"
+    },
+    {
+      "order": 15,
+      "start": 79.91,
+      "end": 90.28,
+      "textEn": "[music] Can you dance?",
+      "textPt": "[música] Você sabe dançar?"
+    },
+    {
+      "order": 16,
+      "start": 86.4,
+      "end": 90.28,
+      "textEn": "Yes, I can.",
+      "textPt": "Sim, eu sei."
+    },
+    {
+      "order": 17,
+      "start": 94.321,
+      "end": 99.72,
+      "textEn": "[music] Let's play soccer.",
+      "textPt": "[música] Vamos jogar futebol."
+    },
+    {
+      "order": 18,
+      "start": 100.56,
+      "end": 104.201,
+      "textEn": "Okay.",
+      "textPt": "Tudo bem."
+    },
+    {
+      "order": 19,
+      "start": 102.181,
+      "end": 126.439,
+      "textEn": "[music] [music] [music] Let's play badminton.",
+      "textPt": "[música] [música] [música] Vamos jogar badminton."
+    },
+    {
+      "order": 20,
+      "start": 127.439,
+      "end": 131.711,
+      "textEn": "Sure.",
+      "textPt": "Claro."
+    },
+    {
+      "order": 21,
+      "start": 129.691,
+      "end": 150.12,
+      "textEn": "[music] [music] [music] Let's play basketball.",
+      "textPt": "[música] [música] [música] Vamos jogar basquete."
+    },
+    {
+      "order": 22,
+      "start": 150.651,
+      "end": 157.8,
+      "textEn": "[bell] Sorry, I can't.",
+      "textPt": "[sino] Desculpe, eu não posso."
+    },
+    {
+      "order": 23,
+      "start": 157.856,
+      "end": 172.921,
+      "textEn": "[music] I like you, Guliver. Thank you.",
+      "textPt": "[música] Eu gosto de você, Gulliver. Obrigado."
+    },
+    {
+      "order": 24,
+      "start": 171.04,
+      "end": 174.941,
+      "textEn": "You're welcome.",
+      "textPt": "De nada."
+    },
+    {
+      "order": 25,
+      "start": 172.921,
+      "end": 185.92,
+      "textEn": "[laughter] Do you like baseball?",
+      "textPt": "[risos] Você gosta de beisebol?"
+    },
+    {
+      "order": 26,
+      "start": 182.4,
+      "end": 188.8,
+      "textEn": "Yes, I do. I like baseball.",
+      "textPt": "Sim, eu gosto. Eu gosto de beisebol."
+    },
+    {
+      "order": 27,
+      "start": 185.92,
+      "end": 190,
+      "textEn": "Me, too. Let's play baseball.",
+      "textPt": "Eu também. Vamos jogar beisebol."
+    },
+    {
+      "order": 28,
+      "start": 188.8,
+      "end": 193.319,
+      "textEn": "Good.",
+      "textPt": "Que bom."
+    },
+    {
+      "order": 29,
+      "start": 190,
+      "end": 193.319,
+      "textEn": "Let's go.",
+      "textPt": "Vamos lá."
+    },
+    {
+      "order": 30,
+      "start": 195.847,
+      "end": 209.56,
+      "textEn": "[music] Oh no.",
+      "textPt": "[música] Ah, não."
+    },
+    {
+      "order": 31,
+      "start": 214.159,
+      "end": 218.879,
+      "textEn": "Let's play soccer.",
+      "textPt": "Vamos jogar futebol."
+    },
+    {
+      "order": 32,
+      "start": 216.72,
+      "end": 221.879,
+      "textEn": "Sorry, I can't.",
+      "textPt": "Desculpe, eu não posso."
+    },
+    {
+      "order": 33,
+      "start": 218.879,
+      "end": 228.599,
+      "textEn": "Look, let's play soccer together.",
+      "textPt": "Olha, vamos jogar futebol juntos."
+    },
+    {
+      "order": 34,
+      "start": 225.599,
+      "end": 228.599,
+      "textEn": "Okay.",
+      "textPt": "Tudo bem."
+    },
+    {
+      "order": 35,
+      "start": 236.879,
+      "end": 243.959,
+      "textEn": "Oh, no.",
+      "textPt": "Ah, não."
+    },
+    {
+      "order": 36,
+      "start": 238.959,
+      "end": 243.959,
+      "textEn": "I'm sorry. Do you like basketball?",
+      "textPt": "Desculpe. Você gosta de basquete?"
+    },
+    {
+      "order": 37,
+      "start": 249.36,
+      "end": 255.959,
+      "textEn": "I don't like basketball.",
+      "textPt": "Eu não gosto de basquete."
+    },
+    {
+      "order": 38,
+      "start": 252.56,
+      "end": 255.959,
+      "textEn": "Let's go.",
+      "textPt": "Vamos lá."
+    },
+    {
+      "order": 39,
+      "start": 261.359,
+      "end": 268,
+      "textEn": "Let's go fishing.",
+      "textPt": "Vamos pescar."
+    },
+    {
+      "order": 40,
+      "start": 264.479,
+      "end": 272.483,
+      "textEn": "Sorry, I can't. I'm busy.",
+      "textPt": "Desculpe, eu não posso. Estou ocupado."
+    },
+    {
+      "order": 41,
+      "start": 268,
+      "end": 273.36,
+      "textEn": "H How about tomorrow?",
+      "textPt": "E... que tal amanhã?"
+    },
+    {
+      "order": 42,
+      "start": 272.483,
+      "end": 277.4,
+      "textEn": "[screaming] Sorry, I can't.",
+      "textPt": "[grito] Desculpe, eu não posso."
+    },
+    {
+      "order": 43,
+      "start": 284.479,
+      "end": 290.72,
+      "textEn": "Let's go swimming.",
+      "textPt": "Vamos nadar."
+    },
+    {
+      "order": 44,
+      "start": 286.72,
+      "end": 293.6,
+      "textEn": "Sorry, I can't. I'm busy.",
+      "textPt": "Desculpe, eu não posso. Estou ocupado."
+    },
+    {
+      "order": 45,
+      "start": 290.72,
+      "end": 296.639,
+      "textEn": "H How about you?",
+      "textPt": "E... e você?"
+    },
+    {
+      "order": 46,
+      "start": 293.6,
+      "end": 299.639,
+      "textEn": "I'm busy, too.",
+      "textPt": "Eu também estou ocupado."
+    },
+    {
+      "order": 47,
+      "start": 296.639,
+      "end": 299.639,
+      "textEn": "Okay.",
+      "textPt": "Tudo bem."
+    }
+  ]
+}

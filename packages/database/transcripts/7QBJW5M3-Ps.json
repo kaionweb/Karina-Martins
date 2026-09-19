@@ -1,0 +1,62 @@
+{
+  "videoId": "7QBJW5M3-Ps",
+  "title": "02 conhecendo a nova amiga kate",
+  "sentences": [
+    {
+      "order": 1,
+      "start": 1.12,
+      "end": 13.88,
+      "textEn": "Good morning. Good morning. Good morning. How are you? This is the music room. I'm fine, thank you.",
+      "textPt": "Bom dia. Bom dia. Bom dia. Como você está? Esta é a sala de música. Estou bem, obrigado."
+    },
+    {
+      "order": 2,
+      "start": 9.28,
+      "end": 13.88,
+      "textEn": "Wow, they are good.",
+      "textPt": "Uau, eles são bons."
+    },
+    {
+      "order": 3,
+      "start": 20.72,
+      "end": 24.76,
+      "textEn": "That's the school library.",
+      "textPt": "Essa é a biblioteca da escola."
+    },
+    {
+      "order": 4,
+      "start": 26.48,
+      "end": 30.92,
+      "textEn": "Wow, many books.",
+      "textPt": "Uau, muitos livros."
+    },
+    {
+      "order": 5,
+      "start": 31.599,
+      "end": 38.28,
+      "textEn": "Good afternoon everyone.",
+      "textPt": "Boa tarde, pessoal."
+    },
+    {
+      "order": 6,
+      "start": 34,
+      "end": 38.28,
+      "textEn": "Good afternoon Mr. Kim.",
+      "textPt": "Boa tarde, Sr. Kim."
+    },
+    {
+      "order": 7,
+      "start": 38.879,
+      "end": 48.28,
+      "textEn": "My name is Kate. How are you?",
+      "textPt": "Meu nome é Kate. Como você está?"
+    },
+    {
+      "order": 8,
+      "start": 42.8,
+      "end": 48.28,
+      "textEn": "I'm great. Nice to meet you, Kate.",
+      "textPt": "Estou ótimo. Prazer em conhecer você, Kate."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+schema: 1
+story: '4.5'
+gate: PASS
+status_reason: 'AiSession/AiMessage adicionados ao schema.prisma exatamente conforme o SQL de referencia do architecture.md e aplicados com sucesso via prisma db push contra o TiDB real (sem --accept-data-loss, apenas adicao de tabelas/colunas). AiUsageService implementa isDailyLimitReached (conta AiSession do perfil desde utcMidnight, comparando com AI_DAILY_LIMIT lido ao vivo do process.env, default 20, compartilhado entre EN e PT) e recordInteraction (1 AiSession + 2 AiMessage por interacao, numa transacao). AiController.chatEn/chatPt checam requireActiveProfile (403 sem perfil ativo - consequencia direta de AiSession.profileId NOT NULL, nao invencao) e enforceDailyLimit (429) ANTES de buscar a licao ou chamar a Anthropic, evitando custo desperdicado - ordem confirmada por leitura direta do codigo, batendo com o diagrama de sequencia de referencia. Mensagem reprovada pelo filtro (Story 4.4) e persistida com content=fallback (nunca o texto reprovado original) e flaggedByFilter=true; mensagem do usuario sempre flaggedByFilter=false - confirmado pelos testes que consultam o banco diretamente. Testes cobrem 403 sem perfil, persistencia com tokens corretos, persistencia de mensagem reprovada, e 429 ao atingir o limite (com perfil dedicado por teste para isolar contagem e env var restaurado em finally, evitando vazamento entre arquivos de teste no mesmo processo Jest --runInBand). pnpm typecheck (7/7), test (database 13/13, web 8/8, api 99/99 - 7 novos testes desta story) e build (4/4, sem regressao de ARCH-001) revalidados de forma independente. Epic 4 (Tutor de IA) esta 100% completo com esta story.'
+reviewer: 'Aria'
+reviewed_revision: 'commit:ab9b4d8'
+updated: '2026-07-31T00:00:00Z'
+top_issues: []
+waiver: { active: false }

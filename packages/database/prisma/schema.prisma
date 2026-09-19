@@ -1,0 +1,384 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String?
+  googleId     String?   @unique
+  profiles     Profile[]
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+enum ProfileType {
+  ADULT
+  CHILD
+}
+
+model Profile {
+  id             String           @id @default(cuid())
+  userId         String
+  user           User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  nickname       String
+  type           ProfileType
+  ageRange       String?
+  avatarUrl      String?          @db.VarChar(2048)
+  currentStreak  Int              @default(0)
+  longestStreak  Int              @default(0)
+  lastActiveDate DateTime?        @db.Date
+  createdAt      DateTime         @default(now())
+  progress       LessonProgress[]
+  xpEvents       XpEvent[]
+  badges         ProfileBadge[]
+  aiSessions     AiSession[]
+  videoWatches   VideoWatch[]
+  seriesProgress SeriesEpisodeProgress[]
+  aiMessageUsage AiMessageUsage[]
+
+  // Início do trial de 7 dias (controle de acesso a Series — ver
+  // computeSeriesAccessStatus em @ipp/shared). @default(now()) só vale pra
+  // perfis novos: perfis que já existiam antes desta coluna foram corrigidos
+  // via script (packages/database/scripts/backfill-trial-started-at.ts) pra
+  // trialStartedAt = createdAt, em vez de todo mundo ganhar 7 dias grátis a
+  // partir da data da migration.
+  trialStartedAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+model Show {
+  id           String   @id @default(cuid())
+  title        String
+  synopsis     String   @db.Text
+  thumbnailKey String
+  tracks       Track[]
+  createdAt    DateTime @default(now())
+}
+
+model Track {
+  id      String   @id @default(cuid())
+  showId  String
+  show    Show     @relation(fields: [showId], references: [id], onDelete: Cascade)
+  title   String
+  order   Int
+  lessons Lesson[]
+
+  @@index([showId])
+}
+
+model Lesson {
+  id          String           @id @default(cuid())
+  trackId     String
+  track       Track            @relation(fields: [trackId], references: [id], onDelete: Cascade)
+  title       String
+  order       Int
+  contentBody String           @db.Text
+  createdAt   DateTime         @default(now())
+  progress    LessonProgress[]
+  aiSessions  AiSession[]
+
+  @@index([trackId])
+}
+
+model LessonProgress {
+  id             String    @id @default(cuid())
+  profileId      String
+  profile        Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  lessonId       String
+  lesson         Lesson    @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  completed      Boolean   @default(false)
+  completedAt    DateTime?
+  lastAccessedAt DateTime?
+
+  @@unique([profileId, lessonId])
+}
+
+enum XpEventSource {
+  LESSON_COMPLETED
+  STREAK_BONUS
+  BADGE_AWARDED
+  VIDEO_COMPLETED
+}
+
+model XpEvent {
+  id        String        @id @default(cuid())
+  profileId String
+  profile   Profile       @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  amount    Int
+  source    XpEventSource
+  createdAt DateTime      @default(now())
+
+  @@index([profileId])
+}
+
+model Badge {
+  id          String         @id @default(cuid())
+  code        String         @unique
+  title       String
+  description String
+  iconKey     String
+  profiles    ProfileBadge[]
+}
+
+model ProfileBadge {
+  id        String   @id @default(cuid())
+  profileId String
+  profile   Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  badgeId   String
+  badge     Badge    @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+  awardedAt DateTime @default(now())
+
+  @@unique([profileId, badgeId])
+}
+
+enum AiLanguage {
+  EN
+  PT
+}
+
+model AiSession {
+  id               String      @id @default(cuid())
+  profileId        String
+  profile          Profile     @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  lessonId         String?
+  lesson           Lesson?     @relation(fields: [lessonId], references: [id], onDelete: SetNull)
+  language         AiLanguage
+  promptTokens     Int         @default(0)
+  completionTokens Int         @default(0)
+  createdAt        DateTime    @default(now())
+  messages         AiMessage[]
+
+  @@index([profileId])
+}
+
+enum AiMessageRole {
+  user
+  assistant
+}
+
+model AiMessage {
+  id              String        @id @default(cuid())
+  sessionId       String
+  session         AiSession     @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  role            AiMessageRole
+  content         String        @db.Text
+  flaggedByFilter Boolean       @default(false)
+  createdAt       DateTime      @default(now())
+
+  @@index([sessionId])
+}
+
+enum PlaylistLevel {
+  INICIANTE
+  INTERMEDIARIO
+  AVANCADO
+}
+
+enum VideoSkill {
+  VOCABULARIO
+  LISTENING
+  MUSICA
+}
+
+enum VideoStatus {
+  AVAILABLE
+  UNAVAILABLE
+}
+
+enum SeriesLevel {
+  BASICO
+  INTERMEDIARIO
+  AVANCADO
+}
+
+enum FilmeLevel {
+  BASICO
+  INTERMEDIARIO
+  AVANCADO
+}
+
+// Catálogo de filmes (histórias completas de longa duração), independente de
+// Show/Series/Video. Cadastrado manualmente via /admin/filmes — cada filme é
+// um vídeo não-listado do canal próprio. `videoId` é o id do YouTube, e serve
+// de chave para o transcript da feature de repetição de frase (mesmo conceito
+// de youtubeVideoId em TranscriptSentence). Sem tracking de progresso: filme
+// só toca + repete frase, não registra watch history.
+model Filme {
+  id              String     @id @default(cuid())
+  title           String
+  emoji           String
+  level           FilmeLevel
+  ageRange        String
+  videoId         String     @unique // id do YouTube (não-listado, canal próprio)
+  durationSeconds Int
+  thumbnailUrl    String?
+  createdAt       DateTime   @default(now())
+}
+
+// Catálogo de séries em vídeo (temporada/episódio), independente de Show
+// (que é a trilha de lições por texto). Cadastrado via /admin/series.
+model Series {
+  id         String          @id @default(cuid())
+  title      String          @unique
+  emoji      String
+  level      SeriesLevel
+  ageRange   String
+  seasons    Int             @default(1)
+  playlistId String?         @unique
+  episodes   SeriesEpisode[]
+  createdAt  DateTime        @default(now())
+
+  // Metadados de catálogo/Explorar — opcionais porque nem toda série
+  // cadastrada via /admin/series preenche isso (só afeta filtro/destaque,
+  // nunca o player). `skills` é array de string em Json (ex.: ["Speaking",
+  // "Listening"]) — filtro é sempre client-side, não precisa de query no banco.
+  genre       String?
+  skills      Json?
+  description String?         @db.Text
+  featured    Boolean         @default(false)
+
+  // Controle de acesso (trial/premium) — ver computeSeriesAccessStatus em
+  // @ipp/shared. true = fica acessível pra sempre no plano gratuito, mesmo
+  // depois do trial acabar. Regra padrão aplicada em AdminSeriesService: a
+  // primeira série cadastrada de cada nível nasce com true; as demais nascem
+  // false, mas dá pra sobrescrever manualmente (PATCH /admin/series/:id/free-after-trial).
+  freeAfterTrial Boolean @default(false)
+}
+
+model SeriesEpisode {
+  id              String                  @id @default(cuid())
+  seriesId        String
+  series          Series                  @relation(fields: [seriesId], references: [id], onDelete: Cascade)
+  videoId         String                  @unique
+  season          Int                     @default(1)
+  number          Int
+  title           String
+  durationSeconds Int
+  thumbnailUrl    String
+  status          VideoStatus             @default(AVAILABLE)
+  // Ocultação manual pelo admin (/admin/series) — independente de `status`,
+  // que é automático (reflete se o vídeo ainda está disponível no YouTube).
+  // Nunca é tocado pela sincronização, então sobrevive a um resync.
+  hidden          Boolean                 @default(false)
+  syncedAt        DateTime                @default(now())
+  progress        SeriesEpisodeProgress[]
+
+  // Sem @@unique([seriesId, number]): number é recalculado a cada sync a
+  // partir da ordem da playlist (índice + 1) — numa resync com reordenação,
+  // dois upserts sequenciais poderiam colidir transitoriamente num valor de
+  // number; o estado final após o loop completo fica sempre consistente.
+  @@index([seriesId])
+  @@index([status])
+}
+
+// Existência do registro = episódio assistido (mesmo espírito de ProfileBadge)
+// — marcado manualmente pelo perfil, sem heartbeat automático (o player de
+// série usa embed simples da playlist, sem YouTube IFrame Player API).
+model SeriesEpisodeProgress {
+  id        String        @id @default(cuid())
+  profileId String
+  profile   Profile       @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  episodeId String
+  episode   SeriesEpisode @relation(fields: [episodeId], references: [id], onDelete: Cascade)
+  watchedAt DateTime      @default(now())
+
+  @@unique([profileId, episodeId])
+  @@index([profileId])
+}
+
+model CuratedPlaylist {
+  id         String        @id @default(cuid())
+  playlistId String        @unique
+  channel    String
+  active     Boolean       @default(true)
+  level      PlaylistLevel
+  ageRange   String
+  skill      VideoSkill
+  theme      String
+  videos     Video[]
+  createdAt  DateTime      @default(now())
+
+  // Controle de acesso (trial/premium) — mesma ideia de Series.freeAfterTrial,
+  // aplicada por playlist (não por vídeo individual) já que level/skill/theme
+  // já vivem aqui. true = todos os vídeos da playlist ficam acessíveis pra
+  // sempre no plano gratuito. Regra padrão em AdminPlaylistsService: a
+  // primeira playlist LISTENING cadastrada de cada nível nasce com true.
+  freeAfterTrial Boolean @default(false)
+}
+
+model Video {
+  id              String          @id @default(cuid())
+  videoId         String          @unique
+  playlistId      String
+  playlist        CuratedPlaylist @relation(fields: [playlistId], references: [id], onDelete: Cascade)
+  title           String
+  channel         String
+  durationSeconds Int
+  thumbnailUrl    String
+  status          VideoStatus     @default(AVAILABLE)
+  syncedAt        DateTime        @default(now())
+  watches         VideoWatch[]
+
+  @@index([playlistId])
+  @@index([status])
+}
+
+// Frases legendadas (EN + tradução PT) de um vídeo do YouTube, usadas pela
+// feature de repetição de frase (A-B repeat) nos players de /videos/[id] e
+// /series/[id]. `youtubeVideoId` é o id da string do YouTube (não um id
+// interno) — solto, sem relation(), porque serve tanto Video (playlists
+// curadas) quanto SeriesEpisode (séries), tabelas independentes que só
+// compartilham o conceito de "id de vídeo do YouTube".
+model TranscriptSentence {
+  id             String   @id @default(cuid())
+  youtubeVideoId String
+  order          Int
+  startTime      Float
+  endTime        Float
+  textEn         String   @db.Text
+  textPt         String   @db.Text
+  // true = tradução ainda não conferida por um humano (ex.: veio do pipeline
+  // de extração automática com textPt vazio) — rotas públicas dos players
+  // (vídeos/filmes/séries) nunca devolvem frases com needsReview true.
+  needsReview    Boolean  @default(true)
+  createdAt      DateTime @default(now())
+
+  @@unique([youtubeVideoId, order])
+  @@index([youtubeVideoId])
+}
+
+// Contador diário de mensagens de IA por perfil — usado pelo limite de
+// 15 mensagens/dia fora do trial (ver AiUsageService). Um registro por
+// perfil por dia permite resetar à meia-noite sem cron: se não existir
+// registro pro dia atual, a contagem é 0.
+model AiMessageUsage {
+  id        String   @id @default(cuid())
+  profileId String
+  profile   Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  date      DateTime @db.Date
+  count     Int      @default(0)
+
+  @@unique([profileId, date])
+}
+
+model VideoWatch {
+  id             String    @id @default(cuid())
+  profileId      String
+  profile        Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  videoId        String
+  video          Video     @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  watchDate      DateTime  @db.Date
+  watchedSeconds Int       @default(0)
+  completedAt    DateTime?
+  updatedAt      DateTime  @updatedAt
+
+  @@unique([profileId, videoId, watchDate])
+  @@index([profileId])
+}

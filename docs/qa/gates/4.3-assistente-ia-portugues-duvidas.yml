@@ -1,0 +1,9 @@
+schema: 1
+story: '4.3'
+gate: PASS
+status_reason: 'AiController ganhou o handler chatPt (POST /ai/chat/pt), validando o corpo com ChatPtSchema (lessonId cuid opcional/anulavel + message 1-2000 chars) e usando model claude-sonnet-4-6 fixo (AC1), sem alterar AiService das Stories 4.1/4.2. Quando lessonId e informado, a licao e buscada via LessonsService.getLesson (404 reaproveitado) e seu titulo/conteudo entram no system prompt via buildPortugueseAssistantSystemPrompt; quando ausente/nulo, gera um prompt generico de duvida geral, sem mencionar licao alguma - confirmado por leitura direta do codigo e pelos testes unitarios/integracao. Nenhuma instrucao de recusa/redirecionamento foi adicionada (correto - nao e AC desta story, diferente da 4.2). AC2 (mesmas regras de filtro/limite do chat EN) permanece intencionalmente nao implementada e documentada no Scope Note: o chat EN (Story 4.2) tambem nao tem AI_DAILY_LIMIT nem filtro de conteudo ainda (Stories 4.4/4.5) - nao ha regra nenhuma para compartilhar no momento, portanto nao e invencao nem lacuna esquecida. Testes cobrem 401/400/404/200-com-licao/200-sem-licao, todos com ANTHROPIC_CLIENT mockado via overrideProvider (sem chamada real). pnpm typecheck (7/7), test (database 13/13, web 8/8, api 80/80 - 7 novos testes desta story) e build (4/4, sem regressao de ARCH-001) revalidados de forma independente.'
+reviewer: 'Aria'
+reviewed_revision: 'commit:6eb7521'
+updated: '2026-07-31T00:00:00Z'
+top_issues: []
+waiver: { active: false }

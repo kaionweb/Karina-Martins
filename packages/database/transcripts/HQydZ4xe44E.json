@@ -1,0 +1,76 @@
+{
+  "videoId": "HQydZ4xe44E",
+  "title": "03 um presente para sally",
+  "sentences": [
+    {
+      "order": 1,
+      "start": 8.16,
+      "end": 12.84,
+      "textEn": "Hello.",
+      "textPt": "Olá."
+    },
+    {
+      "order": 2,
+      "start": 9.36,
+      "end": 12.84,
+      "textEn": "Hello, Sally.",
+      "textPt": "Olá, Sally."
+    },
+    {
+      "order": 3,
+      "start": 16.16,
+      "end": 21.48,
+      "textEn": "What's this?",
+      "textPt": "O que é isso?"
+    },
+    {
+      "order": 4,
+      "start": 17.92,
+      "end": 21.48,
+      "textEn": "It's a book.",
+      "textPt": "É um livro."
+    },
+    {
+      "order": 5,
+      "start": 26.56,
+      "end": 33.64,
+      "textEn": "What's that?",
+      "textPt": "O que é aquilo?"
+    },
+    {
+      "order": 6,
+      "start": 29.119,
+      "end": 33.64,
+      "textEn": "Huh? It's a box.",
+      "textPt": "Hein? É uma caixa."
+    },
+    {
+      "order": 7,
+      "start": 35.44,
+      "end": 38.44,
+      "textEn": "Wow.",
+      "textPt": "Uau."
+    },
+    {
+      "order": 8,
+      "start": 41.265,
+      "end": 49.28,
+      "textEn": "[music] Wow. What's that?",
+      "textPt": "[música] Uau. O que é aquilo?"
+    },
+    {
+      "order": 9,
+      "start": 45.76,
+      "end": 51.6,
+      "textEn": "It's a pencil.",
+      "textPt": "É um lápis."
+    },
+    {
+      "order": 10,
+      "start": 49.28,
+      "end": 51.6,
+      "textEn": "Thank",
+      "textPt": "Obrigado"
+    }
+  ]
+}

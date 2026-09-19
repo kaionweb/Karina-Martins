@@ -1,0 +1,9 @@
+schema: 1
+story: '7.1'
+gate: PASS
+status_reason: 'Restyle visual completo baseado em mockups de referencia, sem reproduzir nenhum elemento de propriedade de terceiros (personagens, marca "km Imersao Conectada", logotipo) - confirmado por leitura do codigo e revisao visual. Bug real pre-existente encontrado e corrigido: globals.css (unico CSS efetivamente carregado) so definia --background/--foreground; --primary/--muted/--card/--accent nunca existiram, entao praticamente todo elemento com cor de fundo do app renderizava sem estilo desde a Story 1.2 (falha silenciosa de propriedade CSS invalida, sem erro no console) - confirmado visualmente no navegador antes/depois da correcao. Tokens completos agora definidos (dark como :root/padrao, light como override preparado, nenhum toggle construido). BottomNav novo usa lucide-react (dependencia ja instalada, nunca usada) com apenas destinos reais (Home/Catalogo/Painel condicional a perfil ADULT/Sair) - sem abas fake para features inexistentes (Games/IA standalone). Botao "Continuar com Google" aponta corretamente para o endpoint OAuth real ja existente (/auth/google, Story 1.3), confirmado via inspecao do link no navegador. Nenhum filtro nao-funcional nem card de progresso inventado foi adicionado (decisoes documentadas no Scope Note). Verificacao manual completa e extensa no navegador: tema escuro renderizando corretamente em todas as paginas (landing com redirect de sessao, login, select-profile, home com streak/XP reais de Theo, catalogo, licoes, licao com chat de IA integrado, painel do responsavel), bottom nav com item ativo destacado e ocultando "Painel" corretamente para perfil CHILD. pnpm typecheck (7/7), test (web 27/27, nenhuma mudanca de comportamento) e build (4/4) revalidados de forma independente.'
+reviewer: 'Aria'
+reviewed_revision: 'commit:8d2990e'
+updated: '2026-07-31T00:00:00Z'
+top_issues: []
+waiver: { active: false }

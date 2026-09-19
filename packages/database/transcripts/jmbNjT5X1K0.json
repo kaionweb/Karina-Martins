@@ -1,0 +1,125 @@
+{
+  "videoId": "jmbNjT5X1K0",
+  "title": "06 festa na piscina",
+  "sentences": [
+    {
+      "order": 1,
+      "start": 5.04,
+      "end": 11.48,
+      "textEn": "What's that?",
+      "textPt": "O que é isso?"
+    },
+    {
+      "order": 2,
+      "start": 7.6,
+      "end": 11.48,
+      "textEn": "My birthday invitation.",
+      "textPt": "Meu convite de aniversário."
+    },
+    {
+      "order": 3,
+      "start": 11.679,
+      "end": 15.4,
+      "textEn": "A swimming party.",
+      "textPt": "Uma festa na piscina."
+    },
+    {
+      "order": 4,
+      "start": 15.44,
+      "end": 22,
+      "textEn": "Nice. Let's go to a swimming party.",
+      "textPt": "Legal. Vamos pra festa na piscina."
+    },
+    {
+      "order": 5,
+      "start": 20,
+      "end": 25.64,
+      "textEn": "Can you swim?",
+      "textPt": "Você sabe nadar?"
+    },
+    {
+      "order": 6,
+      "start": 22,
+      "end": 25.64,
+      "textEn": "Yes, I can.",
+      "textPt": "Sim, eu sei."
+    },
+    {
+      "order": 7,
+      "start": 26.08,
+      "end": 32.095,
+      "textEn": "Can you swim?",
+      "textPt": "Você sabe nadar?"
+    },
+    {
+      "order": 8,
+      "start": 28.48,
+      "end": 34.115,
+      "textEn": "No, I can't.",
+      "textPt": "Não, eu não sei."
+    },
+    {
+      "order": 9,
+      "start": 32.095,
+      "end": 46.48,
+      "textEn": "[music] Welcome everyone. [music] Happy birthday.",
+      "textPt": "[música] Bem-vindos, pessoal. [música] Feliz aniversário."
+    },
+    {
+      "order": 10,
+      "start": 43.36,
+      "end": 49.719,
+      "textEn": "This is for you.",
+      "textPt": "Isso é para você."
+    },
+    {
+      "order": 11,
+      "start": 46.48,
+      "end": 49.719,
+      "textEn": "Thank you.",
+      "textPt": "Obrigado."
+    },
+    {
+      "order": 12,
+      "start": 57.64,
+      "end": 65.439,
+      "textEn": "[music] Can you jump?",
+      "textPt": "[música] Você consegue pular?"
+    },
+    {
+      "order": 13,
+      "start": 63.359,
+      "end": 67.52,
+      "textEn": "Yes, I can.",
+      "textPt": "Sim, eu consigo."
+    },
+    {
+      "order": 14,
+      "start": 65.439,
+      "end": 71.32,
+      "textEn": "Can you jump?",
+      "textPt": "Você consegue pular?"
+    },
+    {
+      "order": 15,
+      "start": 67.52,
+      "end": 71.32,
+      "textEn": "No, I can't.",
+      "textPt": "Não, eu não consigo."
+    },
+    {
+      "order": 16,
+      "start": 80.159,
+      "end": 84.759,
+      "textEn": "Look, I can dance.",
+      "textPt": "Olha, eu sei dançar."
+    },
+    {
+      "order": 17,
+      "start": 85.805,
+      "end": 87.825,
+      "textEn": "[music]",
+      "textPt": "[música]"
+    }
+  ]
+}

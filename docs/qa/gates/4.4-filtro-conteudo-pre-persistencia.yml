@@ -1,0 +1,9 @@
+schema: 1
+story: '4.4'
+gate: PASS
+status_reason: 'Estrategia de filtro (blocklist de palavras/regex) foi decidida explicitamente com o usuario antes da implementacao, dado que o PRD sinaliza este como o ponto de maior risco tecnico do projeto e nenhuma fonte especificava um mecanismo. AiController.applyContentFilter (privado) consulta ProfilesService.isChildProfile (Profile.type, via profileId do JWT) e so aplica checkContentSafety (funcao pura em ai.content-filter.ts, 4 categorias: violencia, conteudo adulto, ofensas, informacao pessoal identificavel, com \\b word-boundary para evitar falso-positivo em substrings) a resposta da IA quando o perfil ativo e CHILD - confirmado por leitura direta do codigo e pelos testes. Filtro correto por escopo: verifica apenas a mensagem da IA (nao a da crianca, conforme FR11), perfis ADULT nao sao afetados (confirmado por teste de regressao-negativa reaproveitando o mesmo conteudo mockado reprovado). AC1 ("antes de persistir")/AC2 ("nao sao salvas") permanecem trivialmente satisfeitas pois nenhuma persistencia existe ainda em nenhum endpoint (Story 4.5); o trabalho acionavel real - retornar resposta apropriada a idade quando reprovado - esta implementado e testado (mensagens de fallback distintas por idioma do canal, EN/PT). Nenhuma alteracao fora do escopo declarado no Scope Note; adicao do metodo ProfilesService.isChildProfile foi uma extensao minima e necessaria, documentada nas Completion Notes. pnpm typecheck (7/7), test (database 13/13, web 8/8, api 92/92 - 12 novos testes desta story) e build (4/4, sem regressao de ARCH-001) revalidados de forma independente.'
+reviewer: 'Aria'
+reviewed_revision: 'commit:25aa740'
+updated: '2026-07-31T00:00:00Z'
+top_issues: []
+waiver: { active: false }

@@ -1,0 +1,391 @@
+{
+  "videoId": "Qhkt5rXt3pY",
+  "title": "4 - A Rainha de Copas a Lebre e a Tartaruga e o Magico de Oz",
+  "sentences": [
+    {
+      "order": 1,
+      "start": 1.199,
+      "end": 6.48,
+      "textEn": "Alice, this is the queen.",
+      "textPt": "Alice, esta é a rainha."
+    },
+    {
+      "order": 2,
+      "start": 4.08,
+      "end": 10.52,
+      "textEn": "Nice to meet you, Alice.",
+      "textPt": "Prazer em te conhecer, Alice."
+    },
+    {
+      "order": 3,
+      "start": 6.48,
+      "end": 10.52,
+      "textEn": "Nice to meet you, too.",
+      "textPt": "Prazer em te conhecer também."
+    },
+    {
+      "order": 4,
+      "start": 11.679,
+      "end": 19.16,
+      "textEn": "Can you play the violin?",
+      "textPt": "Você sabe tocar violino?"
+    },
+    {
+      "order": 5,
+      "start": 14.719,
+      "end": 19.16,
+      "textEn": "Yes, I can play the violin.",
+      "textPt": "Sim, eu sei tocar violino."
+    },
+    {
+      "order": 6,
+      "start": 23.92,
+      "end": 31.56,
+      "textEn": "I can play the violin.",
+      "textPt": "Eu sei tocar violino."
+    },
+    {
+      "order": 7,
+      "start": 26.64,
+      "end": 31.56,
+      "textEn": "Alice, can you play the violin?",
+      "textPt": "Alice, você sabe tocar violino?"
+    },
+    {
+      "order": 8,
+      "start": 36.025,
+      "end": 42,
+      "textEn": "[music] Happy birthday.",
+      "textPt": "[música] Feliz aniversário."
+    },
+    {
+      "order": 9,
+      "start": 39.2,
+      "end": 45.32,
+      "textEn": "This is for you.",
+      "textPt": "Isto é para você."
+    },
+    {
+      "order": 10,
+      "start": 42,
+      "end": 45.32,
+      "textEn": "Thank you.",
+      "textPt": "Obrigado."
+    },
+    {
+      "order": 11,
+      "start": 50.32,
+      "end": 57.04,
+      "textEn": "Can you fly? No, I can't.",
+      "textPt": "Você sabe voar? Não, eu não sei."
+    },
+    {
+      "order": 12,
+      "start": 55.02,
+      "end": 64.68,
+      "textEn": "[music] Can you dance? Sorry, I can't.",
+      "textPt": "[música] Você sabe dançar? Desculpe, eu não sei."
+    },
+    {
+      "order": 13,
+      "start": 65.84,
+      "end": 74.4,
+      "textEn": "Can you jump? No, I can't.",
+      "textPt": "Você sabe pular? Não, eu não sei."
+    },
+    {
+      "order": 14,
+      "start": 71.119,
+      "end": 76.72,
+      "textEn": "Can you swim?",
+      "textPt": "Você sabe nadar?"
+    },
+    {
+      "order": 15,
+      "start": 74.4,
+      "end": 81.56,
+      "textEn": "Yes, I can.",
+      "textPt": "Sim, eu sei."
+    },
+    {
+      "order": 16,
+      "start": 76.72,
+      "end": 81.56,
+      "textEn": "Good. Let's swim together.",
+      "textPt": "Que bom. Vamos nadar juntos."
+    },
+    {
+      "order": 17,
+      "start": 82,
+      "end": 85.479,
+      "textEn": "Let's swim.",
+      "textPt": "Vamos nadar."
+    },
+    {
+      "order": 18,
+      "start": 85.92,
+      "end": 88.92,
+      "textEn": "Okay.",
+      "textPt": "Tudo bem."
+    },
+    {
+      "order": 19,
+      "start": 90.72,
+      "end": 94.2,
+      "textEn": "Oh no.",
+      "textPt": "Ah não."
+    },
+    {
+      "order": 20,
+      "start": 96.4,
+      "end": 100.84,
+      "textEn": "Oh, I can swim.",
+      "textPt": "Ah, eu sei nadar."
+    },
+    {
+      "order": 21,
+      "start": 100.871,
+      "end": 113.56,
+      "textEn": "[music] Good morning, Toto.",
+      "textPt": "[música] Bom dia, Toto."
+    },
+    {
+      "order": 22,
+      "start": 109.759,
+      "end": 113.56,
+      "textEn": "Good morning, Bunny.",
+      "textPt": "Bom dia, Bunny."
+    },
+    {
+      "order": 23,
+      "start": 122.479,
+      "end": 125.479,
+      "textEn": "Okay.",
+      "textPt": "Tudo bem."
+    },
+    {
+      "order": 24,
+      "start": 129.036,
+      "end": 138.16,
+      "textEn": "[music] Hi, I'm Kiki.",
+      "textPt": "[música] Oi, eu sou a Kiki."
+    },
+    {
+      "order": 25,
+      "start": 133.76,
+      "end": 142.239,
+      "textEn": "Hello, Kiki. I'm Toto.",
+      "textPt": "Olá, Kiki. Eu sou o Toto."
+    },
+    {
+      "order": 26,
+      "start": 138.16,
+      "end": 147.16,
+      "textEn": "Good morning, Foxy. This is Toto.",
+      "textPt": "Bom dia, Foxy. Este é o Toto."
+    },
+    {
+      "order": 27,
+      "start": 142.239,
+      "end": 147.16,
+      "textEn": "Hello, Toto. I'm Foxy.",
+      "textPt": "Olá, Toto. Eu sou o Foxy."
+    },
+    {
+      "order": 28,
+      "start": 150.651,
+      "end": 159.76,
+      "textEn": "[music] This is Bunny.",
+      "textPt": "[música] Este é o Bunny."
+    },
+    {
+      "order": 29,
+      "start": 156,
+      "end": 163.08,
+      "textEn": "Good afternoon, Bunny.",
+      "textPt": "Boa tarde, Bunny."
+    },
+    {
+      "order": 30,
+      "start": 159.76,
+      "end": 174.239,
+      "textEn": "Good afternoon, [music] Good evening.",
+      "textPt": "Boa tarde, [música] Boa noite."
+    },
+    {
+      "order": 31,
+      "start": 172.48,
+      "end": 174.64,
+      "textEn": "Good evening.",
+      "textPt": "Boa noite."
+    },
+    {
+      "order": 32,
+      "start": 174.239,
+      "end": 175.84,
+      "textEn": "Goodbye.",
+      "textPt": "Tchau."
+    },
+    {
+      "order": 33,
+      "start": 174.64,
+      "end": 178.84,
+      "textEn": "Goodbye.",
+      "textPt": "Tchau."
+    },
+    {
+      "order": 34,
+      "start": 175.84,
+      "end": 178.84,
+      "textEn": "Bye.",
+      "textPt": "Tchau."
+    },
+    {
+      "order": 35,
+      "start": 187.76,
+      "end": 193.84,
+      "textEn": "Good morning. Nice to meet you.",
+      "textPt": "Bom dia. Prazer em te conhecer."
+    },
+    {
+      "order": 36,
+      "start": 191.36,
+      "end": 196.64,
+      "textEn": "Nice to meet you.",
+      "textPt": "Prazer em te conhecer."
+    },
+    {
+      "order": 37,
+      "start": 193.84,
+      "end": 196.64,
+      "textEn": "How are you?",
+      "textPt": "Como você está?"
+    },
+    {
+      "order": 38,
+      "start": 198.4,
+      "end": 207.4,
+      "textEn": "Um, I'm okay. How are you?",
+      "textPt": "Hum, eu estou bem. Como você está?"
+    },
+    {
+      "order": 39,
+      "start": 203.28,
+      "end": 207.4,
+      "textEn": "Fine, thank you.",
+      "textPt": "Bem, obrigado."
+    },
+    {
+      "order": 40,
+      "start": 209.36,
+      "end": 212.76,
+      "textEn": "Let's go.",
+      "textPt": "Vamos lá."
+    },
+    {
+      "order": 41,
+      "start": 216.959,
+      "end": 224.28,
+      "textEn": "Good afternoon. How are you?",
+      "textPt": "Boa tarde. Como você está?"
+    },
+    {
+      "order": 42,
+      "start": 220.959,
+      "end": 224.28,
+      "textEn": "Not good.",
+      "textPt": "Não estou bem."
+    },
+    {
+      "order": 43,
+      "start": 229.599,
+      "end": 234.56,
+      "textEn": "Thank you.",
+      "textPt": "Obrigado."
+    },
+    {
+      "order": 44,
+      "start": 231.519,
+      "end": 238.422,
+      "textEn": "Are you okay?",
+      "textPt": "Você está bem?"
+    },
+    {
+      "order": 45,
+      "start": 234.56,
+      "end": 240.442,
+      "textEn": "Haha, I'm great.",
+      "textPt": "Haha, eu estou ótimo."
+    },
+    {
+      "order": 46,
+      "start": 238.422,
+      "end": 244.36,
+      "textEn": "[music] Let's go.",
+      "textPt": "[música] Vamos lá."
+    },
+    {
+      "order": 47,
+      "start": 248.959,
+      "end": 252.599,
+      "textEn": "Are you okay?",
+      "textPt": "Você está bem?"
+    },
+    {
+      "order": 48,
+      "start": 253.2,
+      "end": 259.32,
+      "textEn": "I'm not okay. I'm not happy.",
+      "textPt": "Eu não estou bem. Não estou feliz."
+    },
+    {
+      "order": 49,
+      "start": 260.037,
+      "end": 265.56,
+      "textEn": "[music] Oh no.",
+      "textPt": "[música] Ah não."
+    },
+    {
+      "order": 50,
+      "start": 267.759,
+      "end": 274.36,
+      "textEn": "Good evening everyone.",
+      "textPt": "Boa noite a todos."
+    },
+    {
+      "order": 51,
+      "start": 270.8,
+      "end": 274.36,
+      "textEn": "Who are you?",
+      "textPt": "Quem é você?"
+    },
+    {
+      "order": 52,
+      "start": 275.12,
+      "end": 283.12,
+      "textEn": "Oh no, it's a lion.",
+      "textPt": "Ah não, é um leão."
+    },
+    {
+      "order": 53,
+      "start": 284.273,
+      "end": 290.96,
+      "textEn": "[laughter] Wow, you're a great lion.",
+      "textPt": "[risos] Uau, você é um ótimo leão."
+    },
+    {
+      "order": 54,
+      "start": 290.823,
+      "end": 298.083,
+      "textEn": "[snorts] Thank you.",
+      "textPt": "[bufando] Obrigado."
+    },
+    {
+      "order": 55,
+      "start": 292.96,
+      "end": 304.633,
+      "textEn": "Now, let's go to Oz. [music] [music]",
+      "textPt": "Agora, vamos para Oz. [música] [música]"
+    }
+  ]
+}

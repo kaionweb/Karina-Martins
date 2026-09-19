@@ -1,0 +1,20 @@
+schema: 1
+story: '9.1'
+gate: CONCERNS
+status_reason: 'Todos os 4 ACs implementados, testados e verdes. REL-001 corrigido (isolamento de falha por playlist) apos revisao. ARCH-001 permanece como premissa documentada, nao bloqueante, para acompanhamento nas Stories 9.2/9.3.'
+reviewer: 'Quinn'
+reviewed_revision: 'commit:05d75b1'
+updated: '2026-08-07T00:00:00Z'
+top_issues:
+  - id: 'REL-001'
+    severity: low
+    status: fixed
+    finding: 'YoutubeSyncService.syncAll() nao isolava falhas por playlist: se listPlaylistItems/listVideos lancasse para uma CuratedPlaylist, o loop inteiro abortava e as playlists restantes nao eram sincronizadas nessa execucao.'
+    suggested_action: 'Envolver o corpo do for de cada playlist em try/catch, logando o erro e seguindo para a proxima (o cron diario e idempotente).'
+    resolution: 'Corrigido: cada iteracao do for de playlists agora roda dentro de try/catch com log de erro isolado; teste unitario "isola falha de uma playlist e continua sincronizando as demais (REL-001)" adicionado em youtube-sync.service.test.ts. Suite completa: 120/120 verdes.'
+  - id: 'ARCH-001'
+    severity: low
+    status: accepted_premise
+    finding: 'Video.videoId e globalmente unique. O upsert em syncAll() so define playlistId no create, nunca no update — ou seja, nao ha flip-flop de ownership a cada sync. O risco real: se o mesmo videoId existir em duas CuratedPlaylist ativas, o video fica permanentemente vinculado a playlist que o criou primeiro, e fica silenciosamente ausente da listagem da(s) outra(s) playlist(s) que tambem o contem no YouTube.'
+    suggested_action: 'Documentar a premissa de que playlists curadas sao disjuntas (nenhum video compartilhado) ou, se compartilhamento for necessario no futuro, mover para uma tabela de juncao Video<->CuratedPlaylist. Fora do escopo dos ACs desta story — nenhuma mudanca de codigo nesta rodada.'
+waiver: { active: false }

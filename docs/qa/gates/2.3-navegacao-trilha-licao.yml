@@ -1,0 +1,9 @@
+schema: 1
+story: '2.3'
+gate: PASS
+status_reason: 'Model LessonProgress + 3 endpoints protegidos + 2 páginas Client Component corretos. Verificação end-to-end real no navegador (catálogo → trilha → lição, incluindo o clique no ShowCard, que a verificação anterior do dev não havia coberto) confirmou AC1/AC2 sem erros de console. AC3 confirmado via curl com token real + teste de componente. pnpm build (4/4, ambas páginas novas corretamente Dynamic), typecheck (7/7) e test (database 8/8, api 47/47, web 4/4) revalidados de forma independente. Dois achados reais de infra de teste corrigidos no processo (cleanup do Vitest, timeout do Jest) — não-bloqueantes, já corrigidos.'
+reviewer: 'Aria'
+reviewed_revision: 'uncommitted working tree (pré-commit)'
+updated: '2026-07-30T00:00:00Z'
+top_issues: []
+waiver: { active: false }

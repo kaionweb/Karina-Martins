@@ -1,0 +1,48 @@
+schema: 1
+story: '9.2'
+gate: PASS
+status_reason: 'Todos os 4 ACs atendidos e verificados em código, testes (12 API + 6 web verdes) e endpoint ao vivo; módulo estendido corretamente e endpoint público como o padrão de GET /catalog/shows.'
+reviewer: 'Quinn'
+reviewed_revision: 'branch:feat/9.1-video-schema-sync (working tree, base commit 05d75b1)'
+updated: '2026-08-07T11:54:41Z'
+top_issues:
+  - id: 'TEST-001'
+    severity: low
+    finding: 'Subtask 5.2 (smoke manual no navegador com seed real) ficou desmarcada. Coberta indiretamente pelo teste de integração contra banco real (seed → listagem → filtros → exclusão de UNAVAILABLE) e por smoke ao vivo no endpoint (200 + estado vazio + validação 400). Não é bloqueante.'
+    suggested_action: 'Opcional: rodar um smoke visual em /videos com 1-2 vídeos semeados antes da demo ao cliente, para confirmar a renderização da thumbnail real do YouTube via next/image.'
+waiver: { active: false }
+
+evidence:
+  checks_performed:
+    - check: 'Code review (padrões, legibilidade, manutenibilidade)'
+      verdict: PASS
+      note: 'Reaproveita authenticatedFetch, ChipFilter, LevelTag; VideoCard novo justificado (PosterCard é puramente tipográfico). VideosModule ESTENDIDO — um único módulo registra YoutubeSync* (9.1) e Videos* (9.2), sem duplicação.'
+    - check: 'Testes (cobertura adequada, todos passando)'
+      verdict: PASS
+      note: 'API: 12 testes verdes (2 suites videos), incluindo o caso obrigatório UNAVAILABLE. Web: 6 testes verdes (VideoCard + VideosPage). Executados nesta revisão, não apenas relatados.'
+    - check: 'Acceptance criteria (AC1-4)'
+      verdict: PASS
+      note: 'AC1 paginação+filtros combináveis+status AVAILABLE; AC2 thumbnail real+nível+duração mm:ss; AC3 ChipFilter altera a lista; AC4 estado vazio sem erro (confirmado ao vivo: {items:[], total:0}).'
+    - check: 'Sem regressões'
+      verdict: PASS
+      note: 'Alteração aditiva no módulo; suites de videos verdes; sem mudança em rotas/endpoints existentes.'
+    - check: 'Performance'
+      verdict: PASS
+      note: 'Paginação skip/take + count em paralelo (Promise.all); limit teto 50; adequado ao free tier.'
+    - check: 'Segurança (OWASP básico)'
+      verdict: PASS
+      note: 'Endpoint público intencional (idêntico ao padrão de GET /catalog/shows, sem JwtAuthGuard); query validada por ZodValidationPipe; limit>50 → 400 (confirmado ao vivo); sem dado de perfil CHILD exposto.'
+    - check: 'Documentação'
+      verdict: PASS
+      note: 'File List, Dev Notes e Scope Note completos e coerentes com a implementação.'
+  special_attention:
+    - point: 'GET /videos nunca retorna status UNAVAILABLE'
+      result: 'CONFIRMADO — service filtra where.status = "AVAILABLE"; teste de integração assere not.toContain(videoUnavailable).'
+    - point: 'Módulo estendido, não duplicado'
+      result: 'CONFIRMADO — videos.module.ts único com controllers [YoutubeSyncController, VideosController] e providers [YoutubeClient, YoutubeSyncService, VideosService].'
+    - point: 'next.config.ts remotePattern para i.ytimg.com'
+      result: 'CONFIRMADO — remotePatterns presente; aplica-se tanto em dev quanto em build/runtime (sem bypass dev-only que mascare o build de produção).'
+    - point: 'GET /videos sem autenticação'
+      result: 'CONFIRMADO — sem @UseGuards no controller; endpoint ao vivo respondeu 200 sem token; GET /catalog/shows também é público.'
+    - point: 'Escopo: /videos/:id, detalhe e player NÃO nesta story'
+      result: 'CONFIRMADO — apenas @Get() em videos.controller (sem :id); apenas videos/page.tsx no frontend (sem rota de detalhe/player). Escopo respeitado.'

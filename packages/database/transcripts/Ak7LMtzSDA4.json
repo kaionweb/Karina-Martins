@@ -1,0 +1,76 @@
+{
+  "videoId": "Ak7LMtzSDA4",
+  "title": "07 falando sobre idade",
+  "sentences": [
+    {
+      "order": 1,
+      "start": 3.76,
+      "end": 9.92,
+      "textEn": "Hello. Hello.",
+      "textPt": "Olá. Olá."
+    },
+    {
+      "order": 2,
+      "start": 6.319,
+      "end": 11.84,
+      "textEn": "Wow. A talking bird.",
+      "textPt": "Uau. Um pássaro que fala."
+    },
+    {
+      "order": 3,
+      "start": 9.92,
+      "end": 13.84,
+      "textEn": "How old are you?",
+      "textPt": "Quantos anos você tem?"
+    },
+    {
+      "order": 4,
+      "start": 11.84,
+      "end": 16,
+      "textEn": "How old are you?",
+      "textPt": "Quantos anos você tem?"
+    },
+    {
+      "order": 5,
+      "start": 16,
+      "end": 23.56,
+      "textEn": "I'm five. I'm five.",
+      "textPt": "Eu tenho cinco anos. Eu tenho cinco anos."
+    },
+    {
+      "order": 6,
+      "start": 18.96,
+      "end": 23.56,
+      "textEn": "Wow. He's cute.",
+      "textPt": "Uau. Ele é fofo."
+    },
+    {
+      "order": 7,
+      "start": 26.16,
+      "end": 30.24,
+      "textEn": "Wow.",
+      "textPt": "Uau."
+    },
+    {
+      "order": 8,
+      "start": 28.4,
+      "end": 32.8,
+      "textEn": "How old are you?",
+      "textPt": "Quantos anos você tem?"
+    },
+    {
+      "order": 9,
+      "start": 30.24,
+      "end": 36.76,
+      "textEn": "I'm 5 years old.",
+      "textPt": "Eu tenho 5 anos."
+    },
+    {
+      "order": 10,
+      "start": 32.8,
+      "end": 36.76,
+      "textEn": "Oh, I'm sorry.",
+      "textPt": "Ah, desculpa."
+    }
+  ]
+}

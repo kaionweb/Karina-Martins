@@ -1,0 +1,13 @@
+schema: 1
+story: '3.2'
+gate: PASS
+status_reason: 'POST /lessons/:id/complete idempotente (transação LessonProgress+XpEvent) e GET /gamification/xp corretos, ambos verificados por testes de integração reais (idempotência incluída). UI (XpBar, XpGainToast, zustand) revisada e correta; página continua Dynamic no build. pnpm build (4/4), typecheck (7/7) e test (database 13/13, api 53/53, web 6/6) revalidados de forma independente. Achado de infraestrutura documentado (refresh token sem profileId) é pré-existente da Story 1.2, fora do escopo, e não impede a aprovação — a lógica de negócio desta story está correta e testada via fluxo real (token com profileId obtido via /profiles/:id/select).'
+reviewer: 'Aria'
+reviewed_revision: 'uncommitted working tree (pré-commit)'
+updated: '2026-07-30T00:00:00Z'
+top_issues:
+  - id: 'REL-001'
+    severity: low
+    finding: '`LessonsService.completeLesson` faz um check-then-act não atômico (`findFirst` seguido de `create` dentro de `$transaction`) para decidir se já foi concluída. A constraint `@@unique([profileId, lessonId])` no banco impede duplicação real de dados/XP mesmo sob concorrência verdadeira, mas uma segunda requisição verdadeiramente simultânea (não apenas um duplo-clique — o botão já fica `disabled` durante a chamada no cliente, cobrindo o caso comum) receberia um erro de constraint não tratado (500) em vez do 200 idempotente esperado.'
+    suggested_action: 'Não bloqueante — cenário raro (exige requisições HTTP paralelas reais, não coberto pelo fluxo normal de UI). Se algum dia importar (ex: múltiplas abas do mesmo perfil), envolver o `create` em try/catch para o código de erro P2002 do Prisma e tratar como sucesso idempotente.'
+waiver: { active: false }

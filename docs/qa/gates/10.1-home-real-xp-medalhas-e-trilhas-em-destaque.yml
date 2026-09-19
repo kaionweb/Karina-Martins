@@ -1,0 +1,56 @@
+schema: 1
+story: '10.1'
+gate: PASS
+status_reason: 'Todos os 7 ACs atendidos e verificados em código + testes; regressão reexecutada de forma independente (typecheck 7/7, web 43/43 em 17 arquivos, api 148/23 suites, build 4/4 com /home estático 4.06 kB). Único achado não coberto por automação é a verificação manual no navegador (TEST-001, low), deixada para a revisão do usuário.'
+reviewer: 'Quinn (papel executado por @architect / Aria, conforme Executor Assignment da story: quality_gate: architect)'
+reviewed_revision: 'branch:main (working tree) — HEAD 26de19a, sem commit novo (gate não commita)'
+updated: '2026-08-09T00:00:00Z'
+top_issues:
+  - id: 'TEST-001'
+    severity: low
+    finding: 'Verificação manual no navegador (login familia.demo@kaionweb.com / perfil Theo, conferir que XP/medalhas/trilhas em /home batem com os dados reais do banco) não foi executada — nem pelo @dev (sem sessão de browser no ciclo autônomo) nem pelo gate (@architect sem ferramenta de browser/playwright disponível). Coberta indiretamente pelos 3 testes de componente (HomePage.test.tsx) que mockam getXpTotal/getBadges/listShows e asseguram render de XP/medalhas/trilhas e resiliência a falha de listShows.'
+    suggested_action: 'Rodar o smoke test manual com a conta demo antes da apresentação ao cliente, dando tempo para o cold start da API no Render; focar na coerência visual dos PosterCards reais (gradientes ciclados) e nos números reais de XP/medalhas do perfil Theo.'
+  - id: 'MNT-001'
+    severity: low
+    finding: 'O cabeçalho da Home (home/page.tsx:91) ainda exibe o texto fixo "Nível 12 · Intermediário", pré-existente do design system da Fase 1. Com XP/medalhas agora reais, esse "Nível 12" fixo fica visualmente inconsistente com o progresso real do perfil.'
+    suggested_action: 'Não bloqueante e fora de escopo desta story — o nível derivado é a Story 10.2. Substituir o texto fixo pelo nível real quando 10.2 for implementada.'
+  - id: 'MNT-002'
+    severity: low
+    finding: 'A constante `trilhas` em _mock/content.ts perdeu seu único consumidor (home/page.tsx) e virou export morto; suas 3 strings de gradiente foram duplicadas em posterGradients.ts (POSTER_GRADIENTS[0..2]).'
+    suggested_action: 'Remover o export `trilhas` de _mock/content.ts em uma limpeza futura (ex.: junto da Story 10.3, que reaproveita posterGradients). Trivial, não afeta lint/typecheck/build.'
+waiver: { active: false }
+
+evidence:
+  checks_performed:
+    - check: 'Code review (padrões, legibilidade, manutenibilidade)'
+      verdict: PASS
+      note: 'Reaproveita getXpTotal/getBadges (lib/api/gamification), listShows (lib/api/catalog), PosterCard/StatCard/ProgressBar (@ipp/ui) e gradientForIndex (novo). Segue fielmente o padrão de fetch de videos/page.tsx (Story 9.2): useEffect + flag `ativo` de cleanup, estados loading/erro por seção, mensagens textuais simples sem skeleton. IDS: CREATE de posterGradients.ts justificado (paleta reutilizável inexistente), ADAPT pontual de home/page.tsx.'
+    - check: 'Testes (cobertura adequada, todos passando)'
+      verdict: PASS
+      note: 'Executados nesta revisão (não apenas relatados): web 43 testes/17 arquivos (Vitest), inclui os 3 casos novos de HomePage.test.tsx — (a) XP total + contagem de medalhas reais, (b) Shows reais em Trilhas em destaque (título+synopsis), (c) falha de listShows não quebra a página (XP/medalhas seguem visíveis). api 148 testes/23 suites (Jest) verdes, sem regressão. Bom uso de vi.hoisted + vi.mock para gamification/catalog/useProfileStore; streak do mock ajustado para 7 para evitar colisão de getByText.'
+    - check: 'Acceptance criteria (AC1-7)'
+      verdict: PASS
+      note: 'AC1 xpDisplay (total real via getXpTotal, toLocaleString pt-BR) nos StatCards "XP total" (topo, L106) e "XP" (jornada, L197); AC2 medalhasDisplay=badges.length no StatCard "Medalhas" (L198); AC3 listShows renderiza cada Show com title/synopsis e gradientForIndex, sem levelTag (L180-188); AC4 loading "…"/"Carregando trilhas…" e erro "—"/"Não foi possível carregar as trilhas.", cada seção independente; AC5 categorias segue de _mock (L152); AC6 ranking/progressoXp/continueAprendendo seguem mock (L121,127,199); AC7 pnpm build completo 4/4 com /home estático (○) 4.06 kB — verificado nesta revisão.'
+    - check: 'Sem regressões'
+      verdict: PASS
+      note: 'pnpm typecheck 7/7, pnpm test (web 43/43 + api 148/148), pnpm build 4/4 — todos reexecutados de forma independente nesta revisão (não confiando só no relato do @dev). Nenhuma suíte pré-existente quebrou; página segue "use client" (ARCH-001 respeitado, sem fetch em build-time).'
+    - check: 'Performance'
+      verdict: PASS
+      note: '3 fetches em useEffect no mount (Promise.all de xp+badges + listShows separado); /home permanece rota estática 4.06 kB / 120 kB First Load JS. Sem estado em memória no servidor, adequado ao free tier (API pode dormir). Sem fetch em build-time.'
+    - check: 'Segurança (OWASP básico)'
+      verdict: PASS
+      note: 'Nenhum endpoint novo — só consumo. getXpTotal/getBadges via authenticatedFetch (Bearer), exigem perfil ativo (403 NO_ACTIVE_PROFILE degrada para "—" sem travar). listShows é público (mesmo contrato da Story 2.2). Nenhum dado de perfil-criança novo exposto; ANTHROPIC_API_KEY não tocada no web. Sem secrets no cliente.'
+    - check: 'Documentação'
+      verdict: PASS
+      note: 'Scope Note, Dev Notes, Completion Notes e File List completos e coerentes com a implementação; as 2 AUTO-DECISIONs (sem levelTag por ausência no schema Show; gradiente por paleta local por Artigo IV) estão registradas e verificadas. Pendência do smoke test manual documentada explicitamente pelo @dev.'
+  special_attention:
+    - point: 'Imports de LevelTag e trilhas (mock antigo) removidos de home/page.tsx'
+      result: 'CONFIRMADO — home/page.tsx:11 importa apenas categorias/continueAprendendo/jornadaMock de _mock/content; nenhum import de LevelTag ou trilhas. typecheck e o ESLint do next build passam sem aviso de import não usado.'
+    - point: 'ranking/progressoXp/continueAprendendo/categorias seguem mockados de propósito (10.2/10.3)'
+      result: 'CONFIRMADO — AC5/AC6 delimitam explicitamente esse escopo; sem over-reach nem under-reach. jornadaMock.ranking (L199), jornadaMock.progressoXp (L121), continueAprendendo (L127), categorias (L152) intactos.'
+    - point: 'Tratamento de erro/loading das 2 chamadas novas não trava nem quebra a tela se uma falhar'
+      result: 'CONFIRMADO — dois useEffects independentes com estados separados (gamiLoading/gamiErro vs showsLoading/showsErro) e flag `ativo` de cleanup. Teste (c) prova que rejeição de listShows não impede render de XP/medalhas. Observação low: Promise.all agrupa xp+badges, então falha de um dos dois zera a seção inteira para "—" (design intencional e documentado na story — os dois alimentam a mesma seção de gamificação).'
+    - point: 'Verificação manual no navegador (smoke test com conta demo)'
+      result: 'NÃO EXECUTADA — sem ferramenta de browser/playwright disponível ao @architect neste ciclo. Registrada como gap explícito (TEST-001, low), não inventada. Coberta indiretamente pelos testes de componente.'
+    - point: 'Show não tem campo de nível/gênero no schema (ausência de levelTag é intencional)'
+      result: 'CONFIRMADO — packages/database/prisma/schema.prisma:45-52 define Show como { id, title, synopsis, thumbnailKey, tracks, createdAt }. Nenhum campo de nível/gênero. AUTO-DECISION #4 válida (Artigo IV — No Invention).'

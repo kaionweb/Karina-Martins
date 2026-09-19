@@ -1,0 +1,9 @@
+schema: 1
+story: '1.3'
+gate: PASS
+status_reason: 'SEC-003 corrigido e verificado (GoogleOAuthStateStore baseado em cookie, sem sessão) e confirmado por sondagem manual ponta-a-ponta: state divergente/ausente rejeitado (401 real), state coincidente aceito (falha depois só na troca de token com credenciais dummy). TEST-002 fechado com 4 testes novos exercitando o guard/Strategy real. 31/31 testes passando, typecheck e build limpos.'
+reviewer: 'Quinn'
+reviewed_revision: 'uncommitted working tree (pré-commit)'
+updated: '2026-07-29T00:00:00Z'
+top_issues: []
+waiver: { active: false }

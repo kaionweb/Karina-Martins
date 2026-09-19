@@ -1,0 +1,13 @@
+schema: 1
+story: '2.2'
+gate: PASS
+status_reason: 'ARCH-001 corrigido: `export const dynamic = "force-dynamic"` em catalog/page.tsx. Revalidado de forma independente: `pnpm build` (4/4), `pnpm typecheck` (7/7) e `pnpm test` (database 8/8, api 38/38, web 2/2) — tudo passando. MNT-001 (low, não-bloqueante) permanece deferido, documentado como follow-up.'
+reviewer: 'Aria'
+reviewed_revision: 'uncommitted working tree (pré-commit)'
+updated: '2026-07-30T00:10:00Z'
+top_issues:
+  - id: 'MNT-001'
+    severity: low
+    finding: '`pnpm --filter api dev` (nest start --watch) falha com erros de TS claros ("Cannot find module @ipp/shared/@ipp/database") se rodado antes de `packages/shared`/`packages/database` serem buildados (ex: checkout novo, sem build prévio) — porque esses pacotes agora exigem `dist/` compilado (correção necessária desta mesma story, ver Debug Log). Não bloqueia: os fluxos documentados (testes via turbo, `node dist/main.js` de produção) já disparam o build automaticamente via `dependsOn: ["^build"]` do turbo. Só afeta quem roda `pnpm --filter api dev` isoladamente, sem passar por turbo primeiro.'
+    suggested_action: 'Considerar um script `predev` em apps/api (ou depender de `pnpm build` na raiz antes do primeiro `pnpm dev`) — não bloqueante, deferido para follow-up (não faz parte desta story).'
+waiver: { active: false }

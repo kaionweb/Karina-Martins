@@ -1,0 +1,9 @@
+schema: 1
+story: '5.4'
+gate: PASS
+status_reason: 'Auditoria dos 5 itens do AC1 realizada com evidencia concreta, documentada em docs/qa/domain-compliance-5.4.md: (1) catalogo 100% original, sem capacidade de upload de arquivo em lugar nenhum do projeto (multer/FileInterceptor nao usados); (2) Profile so tem nickname/ageRange como dado pessoal, sem sobrenome/foto/data de nascimento em nenhum lugar do schema; (3) Profile nao tem coluna mutavel de XP, toda leitura agrega XpEvent via SUM(amount); (4) CORS ja falha explicitamente sem WEB_URL, ja coberto por teste automatizado da Story 1.5; (5) ANTHROPIC_API_KEY confirmada ausente de apps/web por busca estrutural. Dois testes automatizados novos (domain-compliance.test.ts) travam permanentemente os itens 2/3/5 contra regressao futura - primeira vez que esse tipo de teste estrutural (varredura de codigo-fonte via fs, sem banco/mocks) existe no projeto, verificado por leitura direta do arquivo. Achado correlato registrado como pendencia conhecida, nao corrigido por decisao explicita do usuario (fora do escopo desta story de auditoria): nenhum endpoint POST /profiles de criacao de perfil CHILD foi implementado desde a Story 1.4. Nenhuma violacao de dominio real encontrada. pnpm typecheck (7/7), test (database 15/15, web 13/13, api 111/111 - 2 novos testes desta story) e build (4/4, sem regressao de ARCH-001) revalidados de forma independente. Com esta story, Epic 5 e o PRD inteiro estao completos (19 stories, 1.1 a 5.4, todas Done).'
+reviewer: 'Aria'
+reviewed_revision: 'commit:2603c41'
+updated: '2026-07-31T00:00:00Z'
+top_issues: []
+waiver: { active: false }

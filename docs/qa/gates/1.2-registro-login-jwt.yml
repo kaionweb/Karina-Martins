@@ -1,0 +1,21 @@
+schema: 1
+story: '1.2'
+gate: CONCERNS
+status_reason: 'Implementação correta e todos os ACs funcionalmente atendidos, mas AC4 (validação zod) não tem teste automatizado que prove o comportamento — só verificação estática de código.'
+reviewer: 'Quinn'
+reviewed_revision: 'uncommitted working tree (pré-commit — @dev ainda não commitou localmente)'
+updated: '2026-07-29T00:00:00Z'
+top_issues:
+  - id: 'TEST-001'
+    severity: medium
+    finding: 'AC4 exige "entradas validadas via zod". O ZodValidationPipe está corretamente conectado nos endpoints register/login, mas nenhum teste em auth.test.ts envia um payload inválido (ex: email malformado, senha < 8 caracteres) para confirmar que a API responde 400. A cobertura atual prova os caminhos felizes/AC1/AC2, não AC4 diretamente.'
+    suggested_action: 'Adicionar um teste de integração que envia { email: "invalido", password: "123" } e espera 400 antes de fechar a story.'
+  - id: 'SEC-001'
+    severity: low
+    finding: 'auth.service.ts#login usa `!user || !(await bcrypt.compare(...))` — quando o usuário não existe, bcrypt.compare nunca roda, criando uma pequena diferença de tempo de resposta entre "email não existe" e "senha errada". Impacto reduzido: o endpoint /auth/register já revela existência de email diretamente via 409, então esse timing não abre uma superfície de enumeração nova.'
+    suggested_action: 'Opcional: usar um hash dummy fixo para comparar mesmo quando o usuário não existe, deixando o tempo de resposta constante. Baixa prioridade dado que o /register já expõe a mesma informação.'
+  - id: 'ARCH-001'
+    severity: low
+    finding: 'Cookie de refresh usa `secure: true` fixo (correto por especificação — CLAUDE.md exige SameSite=None; Secure). Isso significa que o cookie não vai funcionar testando o front localmente via HTTP puro (http://localhost:3000 → http://localhost:3001) quando a Story de UI de login for implementada — só funcionará com HTTPS real (produção) ou HTTPS local (ex: mkcert).'
+    suggested_action: 'Documentar/planejar isso para a story que implementar a UI de login (fora do escopo de back-end desta story).'
+waiver: { active: false }

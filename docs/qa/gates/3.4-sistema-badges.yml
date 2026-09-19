@@ -1,0 +1,9 @@
+schema: 1
+story: '3.4'
+gate: PASS
+status_reason: 'Models Badge/ProfileBadge corretos; regras FIRST_LESSON e STREAK_3 concedidas reativamente e de forma idempotente (mesmo padrão check-then-act já aceito como REL-001 na Story 3.2, protegido pela constraint @@unique). GET /gamification/badges e UI (BadgeGrid, /home mínima) corretos. Classificação Static de /home confirmada segura por comparação com a rota raiz "/" (também Static, mesmo padrão: Client Component sem fetch no corpo). pnpm build (4/4), typecheck (7/7) e test (database 13/13, api 64/64, web 8/8) revalidados de forma independente. Achado de infra (timeout do Jest em packages/database) corrigido e consistente com o padrão já usado em apps/api.'
+reviewer: 'Aria'
+reviewed_revision: 'uncommitted working tree (pré-commit)'
+updated: '2026-07-30T00:00:00Z'
+top_issues: []
+waiver: { active: false }

@@ -1,0 +1,9 @@
+schema: 1
+story: '3.3'
+gate: PASS
+status_reason: 'Algoritmo de streak correto (incremento/reinício/idempotência/no-op para perfis inativos), verificado nos 5 cenários da story e por revisão manual de casos de borda (primeira atividade, longestStreak preservado). CronSecretGuard seguro (comparação estrita, sem risco de bypass por header duplicado). Correção da regressão no teste de shape do Profile (Story 1.1) preserva a intenção original da AC. pnpm build (4/4), typecheck (7/7) e test (database 13/13, api 59/59, web 6/6) revalidados de forma independente.'
+reviewer: 'Aria'
+reviewed_revision: 'uncommitted working tree (pré-commit)'
+updated: '2026-07-30T00:00:00Z'
+top_issues: []
+waiver: { active: false }

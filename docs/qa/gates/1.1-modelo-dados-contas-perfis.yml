@@ -1,0 +1,17 @@
+schema: 1
+story: '1.1'
+gate: PASS
+status_reason: 'Todos os ACs atendidos e verificados contra banco real (TiDB Serverless); build/lint/typecheck/test limpos em todo o monorepo; nenhuma alteração de schema foi necessária (já estava correto desde a Fase 0).'
+reviewer: 'Quinn'
+reviewed_revision: 'uncommitted working tree (pré-commit — @dev ainda não commitou localmente)'
+updated: '2026-07-29T00:00:00Z'
+top_issues:
+  - id: 'SEC-001'
+    severity: low
+    finding: 'A connection string real do TiDB (usuário/senha) foi compartilhada em texto puro no chat desta sessão para configuração do DATABASE_URL. Não foi commitada (packages/database/.env está git-ignored), mas ficou exposta no histórico da conversa.'
+    suggested_action: 'Rotacionar a senha do usuário root no console do TiDB Cloud como boa prática de higiene de credenciais.'
+  - id: 'MNT-001'
+    severity: low
+    finding: 'User.passwordHash é NOT NULL no schema atual; a Story 1.3 (login via Google) vai precisar de contas sem senha própria.'
+    suggested_action: 'Já sinalizado nas Dev Notes/Completion Notes da própria story — considerar na Story 1.3.'
+waiver: { active: false }

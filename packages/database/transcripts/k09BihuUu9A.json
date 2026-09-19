@@ -1,0 +1,76 @@
+{
+  "videoId": "k09BihuUu9A",
+  "title": "01_bom-dia-na-sala-de-aula",
+  "sentences": [
+    {
+      "order": 1,
+      "start": 4.88,
+      "end": 9.76,
+      "textEn": "Good morning.",
+      "textPt": "Bom dia."
+    },
+    {
+      "order": 2,
+      "start": 7.279,
+      "end": 11.92,
+      "textEn": "Good morning everyone.",
+      "textPt": "Bom dia, pessoal."
+    },
+    {
+      "order": 3,
+      "start": 9.76,
+      "end": 15.28,
+      "textEn": "How are you?",
+      "textPt": "Como você está?"
+    },
+    {
+      "order": 4,
+      "start": 11.92,
+      "end": 16.96,
+      "textEn": "Fine, thanks. How are you?",
+      "textPt": "Bem, obrigado. E você?"
+    },
+    {
+      "order": 5,
+      "start": 15.28,
+      "end": 20.6,
+      "textEn": "Great.",
+      "textPt": "Ótimo."
+    },
+    {
+      "order": 6,
+      "start": 16.96,
+      "end": 20.6,
+      "textEn": "Come in, please.",
+      "textPt": "Entre, por favor."
+    },
+    {
+      "order": 7,
+      "start": 21.199,
+      "end": 30.359,
+      "textEn": "Nice to meet you. My name is Kate.",
+      "textPt": "Prazer em conhecer você. Meu nome é Kate."
+    },
+    {
+      "order": 8,
+      "start": 26.24,
+      "end": 30.359,
+      "textEn": "Nice to meet you, too.",
+      "textPt": "Prazer em conhecer você também."
+    },
+    {
+      "order": 9,
+      "start": 30.72,
+      "end": 36.28,
+      "textEn": "Sit down, please.",
+      "textPt": "Sente-se, por favor."
+    },
+    {
+      "order": 10,
+      "start": 33.04,
+      "end": 36.28,
+      "textEn": "Thank you.",
+      "textPt": "Obrigado."
+    }
+  ]
+}

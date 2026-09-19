@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 216 45% 98%;
+  --foreground: 216 33% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 216 33% 15%;
+  --primary: 214 59% 43%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 216 45% 95%;
+  --secondary-foreground: 216 33% 15%;
+  --muted: 216 30% 93%;
+  --muted-foreground: 213 15% 43%;
+  --accent: 216 45% 95%;
+  --accent-foreground: 216 33% 15%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 217 33% 92%;
+  --ring: 214 59% 43%;
+
+  /* Tema "cinema" (Fase 1 · Design System) — ver packages/ui/src/tokens/cinema.css.
+     Branch rebrand/karina-martins: paleta clara do Colégio Karina Martins. */
+  --cinema-bg: 247 249 252;
+  --cinema-surface: 255 255 255;
+  --cinema-surface-alt: 238 243 249;
+  --cinema-border: 229 234 242;
+  --cinema-text: 26 36 51;
+  --cinema-muted: 92 107 125;
+  --cinema-primary: 45 101 174;
+  --cinema-primary-alt: 71 153 193;
+  --cinema-amber: 251 198 7;
+  --cinema-blue: 30 74 133;
+  --cinema-green: 62 207 142;
+
+  --cinema-radius-sm: 14px;
+  --cinema-radius-md: 18px;
+  --cinema-radius-lg: 20px;
+  --cinema-radius-full: 999px;
+
+  --cinema-shadow-glow: 0 6px 18px -6px rgb(45 101 174 / 0.35);
+  --cinema-shadow-orb: 0 12px 26px -8px rgb(45 101 174 / 0.45);
+  --cinema-shadow-elevated: 0 8px 20px rgb(0 0 0 / 0.08);
+}
+
+[data-theme="light"] {
+  --background: 216 45% 98%;
+  --foreground: 216 33% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 216 33% 15%;
+  --primary: 214 59% 43%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 216 45% 95%;
+  --secondary-foreground: 216 33% 15%;
+  --muted: 216 30% 93%;
+  --muted-foreground: 213 15% 43%;
+  --accent: 216 45% 95%;
+  --accent-foreground: 216 33% 15%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 217 33% 92%;
+  --ring: 214 59% 43%;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}

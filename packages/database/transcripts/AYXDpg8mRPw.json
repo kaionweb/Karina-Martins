@@ -1,0 +1,146 @@
+{
+  "videoId": "AYXDpg8mRPw",
+  "title": "10 do que voce gosta de comer",
+  "sentences": [
+    {
+      "order": 1,
+      "start": 4.08,
+      "end": 7.88,
+      "textEn": "Wow, gimbab.",
+      "textPt": "Uau, gimbap."
+    },
+    {
+      "order": 2,
+      "start": 12.24,
+      "end": 15.96,
+      "textEn": "Do you like cheese?",
+      "textPt": "Você gosta de queijo?"
+    },
+    {
+      "order": 3,
+      "start": 16.56,
+      "end": 20.44,
+      "textEn": "Yes, I do.",
+      "textPt": "Sim, gosto."
+    },
+    {
+      "order": 4,
+      "start": 20.64,
+      "end": 24.359,
+      "textEn": "Do you like ham?",
+      "textPt": "Você gosta de presunto?"
+    },
+    {
+      "order": 5,
+      "start": 24.4,
+      "end": 28.119,
+      "textEn": "No, I don't.",
+      "textPt": "Não, não gosto."
+    },
+    {
+      "order": 6,
+      "start": 28.96,
+      "end": 35.559,
+      "textEn": "What's that?",
+      "textPt": "O que é isso?"
+    },
+    {
+      "order": 7,
+      "start": 31.519,
+      "end": 35.559,
+      "textEn": "It's a gimchi sandwich.",
+      "textPt": "É um sanduíche de kimchi."
+    },
+    {
+      "order": 8,
+      "start": 36.88,
+      "end": 40.28,
+      "textEn": "It's good.",
+      "textPt": "Está gostoso."
+    },
+    {
+      "order": 9,
+      "start": 46.079,
+      "end": 50.12,
+      "textEn": "Mom, I'm hungry.",
+      "textPt": "Mãe, estou com fome."
+    },
+    {
+      "order": 10,
+      "start": 51.6,
+      "end": 60.44,
+      "textEn": "Do you like gimchi?",
+      "textPt": "Você gosta de kimchi?"
+    },
+    {
+      "order": 11,
+      "start": 55.12,
+      "end": 60.44,
+      "textEn": "Yes, I do. I like kimchi.",
+      "textPt": "Sim, gosto. Eu gosto de kimchi."
+    },
+    {
+      "order": 12,
+      "start": 62.16,
+      "end": 68.119,
+      "textEn": "M. It's good. Thank you.",
+      "textPt": "Mmm. Está gostoso. Obrigado."
+    },
+    {
+      "order": 13,
+      "start": 69.52,
+      "end": 75.56,
+      "textEn": "I'm sorry.",
+      "textPt": "Desculpa."
+    },
+    {
+      "order": 14,
+      "start": 72.24,
+      "end": 75.56,
+      "textEn": "That's okay.",
+      "textPt": "Tudo bem."
+    },
+    {
+      "order": 15,
+      "start": 76.64,
+      "end": 82.36,
+      "textEn": "Cheese.",
+      "textPt": "Queijo."
+    },
+    {
+      "order": 16,
+      "start": 79.36,
+      "end": 82.36,
+      "textEn": "Kimchi.",
+      "textPt": "Kimchi."
+    },
+    {
+      "order": 17,
+      "start": 84.24,
+      "end": 87.439,
+      "textEn": "Thank you.",
+      "textPt": "Obrigado."
+    },
+    {
+      "order": 18,
+      "start": 92.079,
+      "end": 97.68,
+      "textEn": "Do you have crayons?",
+      "textPt": "Você tem giz de cera?"
+    },
+    {
+      "order": 19,
+      "start": 94.479,
+      "end": 101.92,
+      "textEn": "Yes, I do.",
+      "textPt": "Sim, tenho."
+    },
+    {
+      "order": 20,
+      "start": 97.68,
+      "end": 101.92,
+      "textEn": "Great. Thanks. You're",
+      "textPt": "Ótimo. Obrigado. De nada"
+    }
+  ]
+}
