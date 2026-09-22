@@ -184,8 +184,14 @@ export default function RegisterPage() {
               {acceptedTerms ? <Check className="h-3 w-3 text-white" strokeWidth={3.5} /> : null}
             </button>
             <span className="font-body text-xs leading-relaxed text-cinema-muted">
-              Li e aceito os <span className="font-bold text-cinema-text">Termos de Uso</span> e a{" "}
-              <span className="font-bold text-cinema-text">Política de Privacidade</span>
+              Li e aceito os{" "}
+              <Link href="/termos" target="_blank" className="font-bold text-cinema-text underline hover:text-cinema-primary">
+                Termos de Uso
+              </Link>{" "}
+              e a{" "}
+              <Link href="/privacidade" target="_blank" className="font-bold text-cinema-text underline hover:text-cinema-primary">
+                Política de Privacidade
+              </Link>
             </span>
           </label>
 
